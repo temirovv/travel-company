@@ -58,6 +58,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': ['root.customtags']
         },
     },
 ]
@@ -113,3 +114,31 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # User Model
 AUTH_USER_MODEL = 'users.User'
+
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Bilol honest travel",
+    "site_header": "Bilol honest travel",
+    "site_brand": "bilolhonesttravel",
+    "welcome_sign": "Welcome",
+    "copyright": "Bilol Honest Travel © 2024",
+    "search_model": "users.User",
+    "user_avatar": None,
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "topmenu_links": [
+        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"model": "users.User"},
+        {"app": "places"},
+    ],
+    "usermenu_links": [{"name": "Support", "url": "https://support.mycompany.com", "new_window": True}],
+    "changeform_format": "collapsible",  # Also "vertical_tabs", "horizontal_tabs", "collapsible", "carousel"
+    "changeform_format_overrides": {"users.user": "vertical_tabs"},
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "users.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+    },
+    "related_modal_active": True,
+}
+
