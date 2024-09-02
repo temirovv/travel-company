@@ -1,16 +1,23 @@
 from django.db.models import (
     Model, CharField, ManyToManyField, ForeignKey, CASCADE,
-    TextField, DateTimeField, ImageField, DecimalField, SET_NULL
+    TextField, DateTimeField, ImageField, DecimalField, SET_NULL, SlugField
 )
+from django.utils.text import slugify
 
 
 class Category(Model):
     name = CharField(max_length=100)
     description = TextField(null=True, blank=True)
+    slug = SlugField(unique=True, null=True, blank=True)
 
     class Meta:
         verbose_name = 'Kategoriya'
         verbose_name_plural = 'Kategoriyalar'
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -25,10 +32,17 @@ class Place(Model):
     created_at = DateTimeField(auto_now_add=True)
     updated_at = DateTimeField(auto_now=True)
     categories = ManyToManyField('Category', through='PlaceCategories', related_name='places')
+    slug = SlugField(unique=True, null=True, blank=True)
 
     class Meta:
         verbose_name = 'Joy'
         verbose_name_plural = 'Joylar'
+        ordering = '-id',
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -63,6 +77,7 @@ class PlaceImage(Model):
 class Interest(Model):
     place = ForeignKey('Place', SET_NULL, 'interests', null=True, blank=True)
     phone_number = CharField(max_length=20)
+    message = TextField(null=True, blank=True)
     created_at = DateTimeField(auto_now_add=True)
 
     class Meta:
