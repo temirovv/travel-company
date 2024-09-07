@@ -8,8 +8,13 @@ from .forms import InterestModelForm
 def home(request):
     if request.method == 'GET':
         places = Place.objects.all()
+        search_query = request.GET.get('q', '')
+        if search_query:
+            places = places.filter(name__icontains=search_query)
+
         context = {
-            'places': places
+            'places': places,
+            'search_query': search_query
         }
         return render(request, 'places/index.html', context=context)  # noqa
 
@@ -32,4 +37,4 @@ def place_detail(request, slug):
         'form': form
     }
 
-    return render(request, 'places/place-detail.html', context=context)  # noqa
+    return render(request, 'places/aboutUs.html', context=context)  # noqa

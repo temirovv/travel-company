@@ -27,8 +27,8 @@ class Place(Model):
     name = CharField(max_length=255)
     description = TextField()
     location = CharField(max_length=300)
-    latitude = DecimalField(max_digits=9, decimal_places=6, blank=True, null=True)
-    longitude = DecimalField(max_digits=9, decimal_places=6, blank=True, null=True)
+    latitude = DecimalField(max_digits=20, decimal_places=15, blank=True, null=True)
+    longitude = DecimalField(max_digits=20, decimal_places=15, blank=True, null=True)
     created_at = DateTimeField(auto_now_add=True)
     updated_at = DateTimeField(auto_now=True)
     categories = ManyToManyField('Category', through='PlaceCategories', related_name='places')
@@ -43,6 +43,13 @@ class Place(Model):
         if not self.slug:
             self.slug = slugify(self.name)
         super().save(*args, **kwargs)
+
+    @property
+    def first_image(self):
+        first = self.images.first()
+        if first:
+            return first.image.url
+        return ''
 
     def __str__(self):
         return self.name
@@ -61,7 +68,7 @@ class PlaceCategories(Model):
 
 
 class PlaceImage(Model):
-    place = ForeignKey('Place', CASCADE,  'images')
+    place = ForeignKey('Place', CASCADE,  related_name='images')
     image = ImageField(upload_to='places/')
     caption = CharField(max_length=255, blank=True, null=True)
     uploaded_at = DateTimeField(auto_now_add=True)
