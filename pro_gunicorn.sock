@@ -1,0 +1,8 @@
+[program:bilol_pro]
+command=/var/www/bahromtravel/.venv/bin/gunicorn --workers 3 --bind unix:/var/www/bahromtravel/pro_gunicorn.sock DJANGO_SETTINGS_MODULE=root.settings.production root.wsgi:application
+directory=/var/www/bahromtravel/
+user=root
+autostart=true
+autorestart=true
+stderr_logfile=/var/www/bahromtravel/logs/bilol_pro.err.log
+stdout_logfile=/var/www/bahromtravel/logs/bilol_pro.out.log
