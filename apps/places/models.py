@@ -2,13 +2,15 @@ from django.db.models import (
     Model, CharField, ManyToManyField, ForeignKey, CASCADE,
     TextField, DateTimeField, ImageField, DecimalField, SET_NULL, SlugField
 )
+from django.db.models.functions import Now
 from django.utils.text import slugify
+from django_ckeditor_5.fields import CKEditor5Field
 
 
 class Category(Model):
     name = CharField(max_length=100)
     description = TextField(null=True, blank=True)
-    slug = SlugField(unique=True, null=True, blank=True)
+    slug = SlugField(unique=True, editable=False)
 
     class Meta:
         verbose_name = 'Kategoriya'
@@ -17,6 +19,8 @@ class Category(Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
+            while self.__class__.objects.filter(slug=self.slug).exists():
+                self.slug += '-1'
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -25,7 +29,7 @@ class Category(Model):
 
 class Place(Model):
     name = CharField(max_length=255)
-    description = TextField()
+    description = CKEditor5Field('Text', config_name='extends')
     location = CharField(max_length=300)
     latitude = DecimalField(max_digits=20, decimal_places=15, blank=True, null=True)
     longitude = DecimalField(max_digits=20, decimal_places=15, blank=True, null=True)
@@ -68,7 +72,7 @@ class PlaceCategories(Model):
 
 
 class PlaceImage(Model):
-    place = ForeignKey('Place', CASCADE,  related_name='images')
+    place = ForeignKey('Place', CASCADE, related_name='images')
     image = ImageField(upload_to='places/')
     caption = CharField(max_length=255, blank=True, null=True)
     uploaded_at = DateTimeField(auto_now_add=True)
@@ -82,10 +86,10 @@ class PlaceImage(Model):
 
 
 class Interest(Model):
-    place = ForeignKey('Place', SET_NULL, 'interests', null=True, blank=True)
+    place = ForeignKey('Place', SET_NULL, related_name='interests', null=True, blank=True)
     phone_number = CharField(max_length=20)
     message = TextField(null=True, blank=True)
-    created_at = DateTimeField(auto_now_add=True)
+    created_at = DateTimeField(auto_now_add=True, db_default=Now())
 
     class Meta:
         verbose_name_plural = 'Qiziqish bildirganlar'
