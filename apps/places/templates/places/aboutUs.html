@@ -111,11 +111,12 @@
 
     <section class="about-section">
         <div class="about-discription container-about">
-            <h4 class="d-flex justify-content-center fs-1">
+            <h2 class="d-flex justify-content-center fs-1">
                 {{ place.name }}
-            </h4>
-            <p>
-                {{ place.description }}
+            </h2>
+
+             <p>
+                {{ place.description|safe }}
             </p>
         </div>
         <div class="d-flex justify-content-center pb-5">
