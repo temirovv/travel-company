@@ -13,7 +13,7 @@ load_dotenv(BASE_DIR / '.env/.env.local')
 
 SECRET_KEY = ''
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -32,6 +32,7 @@ INSTALLED_APPS = [
 
     # third party apps
     'django_ckeditor_5',
+    'afdasfasdf'
 ]
 
 MIDDLEWARE = [
