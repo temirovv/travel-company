@@ -32,7 +32,6 @@ INSTALLED_APPS = [
 
     # third party apps
     'django_ckeditor_5',
-    'afdasfasdf'
 ]
 
 MIDDLEWARE = [
