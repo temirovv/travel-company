@@ -16,7 +16,12 @@ async def notify_admin(admin: int, message: str):
 @receiver(post_save, sender=Interest)
 def send_message_via_bot(sender, instance: Interest, created: bool, **kwargs):
     if created:
-        message = f"{instance.place.name} ga {instance.phone_number} qiziqish bildirdi"
+        message = f"""
+        {instance.place.name} ga {instance.phone_number} qiziqish bildirdi
+        """
+        if instance.message:
+            message += f'\nMijozdan: {instance.message}'
+
         print(f'{ADMIN=}')
         for admin in ADMIN:
             print(f'{admin=}')
