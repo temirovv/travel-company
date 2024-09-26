@@ -29,9 +29,13 @@ INSTALLED_APPS = [
     # custom apps
     'users',
     'places',
+    'payments',
+    'tour_packages',
+    'user_reviews',
 
     # third party apps
     'django_ckeditor_5',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -225,3 +229,7 @@ CKEDITOR_5_CONFIGS = {
         }
     }
 }
+
+PAYME_MERCHANT_ID = os.getenv('PAYME_MERCHANT_ID')
+PAYME_SECRET_KEY = os.getenv('PAYME_SECRET_KEY')
+PAYME_API_URL = 'https://checkout.paycom.uz/api'

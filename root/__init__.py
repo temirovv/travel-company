@@ -1,1 +1,1 @@
-from root.settings import development
+from root.settings import local
