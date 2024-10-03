@@ -1,0 +1,218 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-03 11:22+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\templates\index.html:178 .\templates\index.html:234
+#: .\templates\package-details.html:179 .\templates\package-details.html:264
+msgid "Sign in"
+msgstr "Kirish"
+
+#: .\templates\index.html:182 .\templates\index.html:238
+#: .\templates\package-details.html:183 .\templates\package-details.html:268
+msgid "My Account"
+msgstr "Mening Akkauntim"
+
+#: .\templates\index.html:186 .\templates\index.html:242
+#: .\templates\package-details.html:187 .\templates\package-details.html:272
+msgid "Settings"
+msgstr "Sozlamalar"
+
+#: .\templates\index.html:190 .\templates\index.html:246
+#: .\templates\package-details.html:191 .\templates\package-details.html:276
+msgid "Log out"
+msgstr "Chiqish"
+
+#: .\templates\index.html:215 .\templates\index.html:614
+#: .\templates\package-details.html:217 .\templates\package-details.html:218
+#: .\templates\package-details.html:713
+msgid "About us"
+msgstr "Biz haqimizda"
+
+#: .\templates\index.html:216 .\templates\package-details.html:219
+#: .\templates\package-details.html:220
+msgid "Destinations"
+msgstr "Joylar"
+
+#: .\templates\index.html:218
+msgid "Tour Package"
+msgstr "Tur paketlari"
+
+#: .\templates\index.html:222 .\templates\package-details.html:251
+#: .\templates\package-details.html:252
+msgid "Contact Us"
+msgstr "Biz bilan aloqa"
+
+#: .\templates\index.html:288
+msgid "Amazing Tour In"
+msgstr "Ajoyib tur ..."
+
+#: .\templates\index.html:289 .\templates\index.html:365
+#: .\templates\package-details.html:377
+msgid "Days"
+msgstr "Kun"
+
+#: .\templates\index.html:289
+msgid "Nights Tour"
+msgstr ""
+
+#: .\templates\index.html:291
+msgid "Book Now"
+msgstr "Hoziroq Bron qilish"
+
+#: .\templates\index.html:345
+msgid "Choose Your Package"
+msgstr "Paketni tanlash"
+
+#: .\templates\index.html:346
+msgid "Select Your best Package For Your Travel"
+msgstr "O'zingiz uchun eng yaxshi sayohat paketini tanlang"
+
+#: .\templates\index.html:364 .\templates\package-details.html:618
+msgid "Per Person"
+msgstr "Odam boshiga"
+
+#: .\templates\index.html:365 .\templates\index.html:372
+msgid "Night"
+msgstr "Kecha"
+
+#: .\templates\index.html:542 .\templates\package-details.html:641
+msgid "Subscribe To Our Newsletter For Latest Update"
+msgstr "Yangiliklardan bohabar bo'lish uchun obuna bo'ling"
+
+#: .\templates\index.html:547 .\templates\package-details.html:647
+msgid "Subscribe"
+msgstr "Obuna bo'ling"
+
+#: .\templates\index.html:566 .\templates\package-details.html:667
+msgid ""
+"Bilol Honest Travel is dedicated to providing exceptional travel experiences "
+"around the world. From cultural tours to exotic getaways, we ensure your "
+"journey is unforgettable and seamless. Trust us to guide you on your next "
+"adventure."
+msgstr ""
+"Bilol Honest Travel dunyo bo'ylab ajoyib sayohat tajribalarini taqdim "
+"etishga bag'ishlangan.Madaniy sayohatlardan tortib ekzotik dam olishgacha, "
+"biz sizning safaringizni unutilmas va mukammal qilamiz.Keyingi "
+"sarguzashtingizda bizga ishonib, yo'lingizni toping."
+
+#: .\templates\index.html:568 .\templates\package-details.html:669
+msgid "Follow Us"
+msgstr "Bizni kuzatib boring"
+
+#: .\templates\index.html:582 .\templates\index.html:613
+#: .\templates\package-details.html:683 .\templates\package-details.html:712
+msgid "Contact us"
+msgstr "Biz bilan aloqa"
+
+#: .\templates\index.html:600
+msgid ""
+"\n"
+"                                            Toshkent Shahri, Sergeli tumani, "
+"<br> \n"
+"                                            Qumariq MFY, Qum-Ariq, <br>\n"
+"                                            9Proyezd ko'chasi, 20-UY"
+msgstr ""
+
+#: .\templates\index.html:610 .\templates\package-details.html:709
+msgid "support"
+msgstr "Qo'llab Quvvatlash"
+
+#: .\templates\index.html:615 .\templates\package-details.html:714
+msgid "Services"
+msgstr "Xizmatlar"
+
+#: .\templates\index.html:616 .\templates\package-details.html:715
+msgid "Our Blogs"
+msgstr "Bizning Blog"
+
+#: .\templates\index.html:617 .\templates\package-details.html:716
+msgid "terms and conditions"
+msgstr "foydalanish shartlari"
+
+#: .\templates\index.html:624 .\templates\package-details.html:723
+msgid "We Accepts"
+msgstr "Qabul qilamiz"
+
+#: .\templates\index.html:636 .\templates\package-details.html:735
+msgid "Copyright"
+msgstr "Mualliflik huquqi"
+
+#: .\templates\index.html:636 .\templates\package-details.html:735
+msgid "All rights reserverd"
+msgstr ""
+
+#: .\templates\package-details.html:318
+msgid "Tour Package Details"
+msgstr "Barcha huquqlar himoyalangan"
+
+#: .\templates\package-details.html:321 .\templates\package-details.html:322
+msgid "Home"
+msgstr "Asosiy Sahifa"
+
+#: .\templates\package-details.html:325
+msgid "Package Details"
+msgstr "Paket tafsilotlari"
+
+#: .\templates\package-details.html:369
+msgid "Duration"
+msgstr "Davomiyligi"
+
+#: .\templates\package-details.html:376
+msgid "Tour Type"
+msgstr "Tur turi"
+
+#: .\templates\package-details.html:383
+msgid "Group Size"
+msgstr "Guruh sig'imi"
+
+#: .\templates\package-details.html:384
+msgid "People"
+msgstr "Odamlar"
+
+#: .\templates\package-details.html:390
+msgid "Languages"
+msgstr "Tillar"
+
+#: .\templates\package-details.html:401
+msgid "Information"
+msgstr "Ma'lumot"
+
+#: .\templates\package-details.html:409
+msgid "Travel Plan"
+msgstr "Sayohat rejasi"
+
+#: .\templates\package-details.html:417
+msgid "Our Gallery"
+msgstr "Bizning Galeriya"
+
+#: .\templates\package-details.html:428 .\templates\package-details.html:443
+msgid "Overview"
+msgstr "Umumiy Ma'lumot"
+
+#: .\templates\package-details.html:467
+msgid "No travel plans available"
+msgstr "Xozircha Sayohat rejasi mavjud emas"
+
+#: .\templates\package-details.html:557
+msgid "Book This Package"
+msgstr "Ushbu paketni bron qiling"
+
+#: .\templates\package-details.html:602
+msgid "Related Packages"
+msgstr "Aloqador paketlar"

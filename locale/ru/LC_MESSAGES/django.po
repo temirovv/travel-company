@@ -1,0 +1,227 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-03 11:23+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\templates\index.html:178 .\templates\index.html:234
+#: .\templates\package-details.html:179 .\templates\package-details.html:264
+msgid "Sign in"
+msgstr "Войти"
+
+#: .\templates\index.html:182 .\templates\index.html:238
+#: .\templates\package-details.html:183 .\templates\package-details.html:268
+msgid "My Account"
+msgstr "Мой Аккаунт"
+
+#: .\templates\index.html:186 .\templates\index.html:242
+#: .\templates\package-details.html:187 .\templates\package-details.html:272
+msgid "Settings"
+msgstr "Настройки"
+
+#: .\templates\index.html:190 .\templates\index.html:246
+#: .\templates\package-details.html:191 .\templates\package-details.html:276
+msgid "Log out"
+msgstr "Выйти"
+
+#: .\templates\index.html:215 .\templates\index.html:614
+#: .\templates\package-details.html:217 .\templates\package-details.html:218
+#: .\templates\package-details.html:713
+msgid "About us"
+msgstr "О нас"
+
+#: .\templates\index.html:216 .\templates\package-details.html:219
+#: .\templates\package-details.html:220
+msgid "Destinations"
+msgstr "Пункты назначения"
+
+#: .\templates\index.html:218
+msgid "Tour Package"
+msgstr "Турпакет"
+
+#: .\templates\index.html:222 .\templates\package-details.html:251
+#: .\templates\package-details.html:252
+msgid "Contact Us"
+msgstr "Связаться с нами"
+
+#: .\templates\index.html:288
+msgid "Amazing Tour In"
+msgstr "Удивительный тур в"
+
+#: .\templates\index.html:289 .\templates\index.html:365
+#: .\templates\package-details.html:377
+msgid "Days"
+msgstr "Дни"
+
+#: .\templates\index.html:289
+msgid "Nights Tour"
+msgstr "Ночной тур"
+
+#: .\templates\index.html:291
+msgid "Book Now"
+msgstr "Забронировать сейчас"
+
+#: .\templates\index.html:345
+msgid "Choose Your Package"
+msgstr "Выберите свой пакет"
+
+#: .\templates\index.html:346
+msgid "Select Your best Package For Your Travel"
+msgstr "Выберите лучший пакет для вашего путешествия"
+
+#: .\templates\index.html:364 .\templates\package-details.html:618
+msgid "Per Person"
+msgstr "На человека"
+
+#: .\templates\index.html:365 .\templates\index.html:372
+msgid "Night"
+msgstr "Ночь"
+
+#: .\templates\index.html:542 .\templates\package-details.html:641
+msgid "Subscribe To Our Newsletter For Latest Update"
+msgstr ""
+"Подпишитесь на нашу рассылку новостей, чтобы получать последние обновления"
+
+#: .\templates\index.html:547 .\templates\package-details.html:647
+msgid "Subscribe"
+msgstr "Подписка"
+
+#: .\templates\index.html:566 .\templates\package-details.html:667
+msgid ""
+"Bilol Honest Travel is dedicated to providing exceptional travel experiences "
+"around the world. From cultural tours to exotic getaways, we ensure your "
+"journey is unforgettable and seamless. Trust us to guide you on your next "
+"adventure."
+msgstr ""
+"Bilol Honest Travel стремится предоставлять исключительные туристические "
+"услуги по всему миру.От культурных туров до экзотических путешествий — мы "
+"гарантируем, что ваше путешествие будет незабываемым и безупречным. "
+"Доверьтесь нам в организации вашего следующего приключения."
+
+#: .\templates\index.html:568 .\templates\package-details.html:669
+msgid "Follow Us"
+msgstr "Следите за нами"
+
+#: .\templates\index.html:582 .\templates\index.html:613
+#: .\templates\package-details.html:683 .\templates\package-details.html:712
+msgid "Contact us"
+msgstr "Связаться с нами"
+
+#: .\templates\index.html:600
+msgid ""
+"\n"
+"                                            Toshkent Shahri, Sergeli tumani, "
+"<br> \n"
+"                                            Qumariq MFY, Qum-Ariq, <br>\n"
+"                                            9Proyezd ko'chasi, 20-UY"
+msgstr ""
+"\n"
+"                                            ГОРОД ТАШКЕНТ, СЕРГЕЛИЙСКИЙ РАЙОН, "
+"<br> \n"
+"                                            QUMARIQ МФЙ, КУМ-АРЫК, <br>\n"
+"                                            9ПРОЕЗД КУЧАСИ, 20-UY"
+
+
+#: .\templates\index.html:610 .\templates\package-details.html:709
+msgid "support"
+msgstr "поддержка"
+
+#: .\templates\index.html:615 .\templates\package-details.html:714
+msgid "Services"
+msgstr "Услуги"
+
+#: .\templates\index.html:616 .\templates\package-details.html:715
+msgid "Our Blogs"
+msgstr "Наши блоги"
+
+#: .\templates\index.html:617 .\templates\package-details.html:716
+msgid "terms and conditions"
+msgstr "условия и положения"
+
+#: .\templates\index.html:624 .\templates\package-details.html:723
+msgid "We Accepts"
+msgstr "Мы принимаем"
+
+#: .\templates\index.html:636 .\templates\package-details.html:735
+msgid "Copyright"
+msgstr "Авторские права"
+
+#: .\templates\index.html:636 .\templates\package-details.html:735
+msgid "All rights reserverd"
+msgstr "Все права защищены"
+
+#: .\templates\package-details.html:318
+msgid "Tour Package Details"
+msgstr "Подробности турпакета"
+
+#: .\templates\package-details.html:321 .\templates\package-details.html:322
+msgid "Home"
+msgstr "Главная"
+
+#: .\templates\package-details.html:325
+msgid "Package Details"
+msgstr "Детали пакета"
+
+#: .\templates\package-details.html:369
+msgid "Duration"
+msgstr "Продолжительность"
+
+#: .\templates\package-details.html:376
+msgid "Tour Type"
+msgstr "Тип тура"
+
+#: .\templates\package-details.html:383
+msgid "Group Size"
+msgstr "Размер группы"
+
+#: .\templates\package-details.html:384
+msgid "People"
+msgstr "Люди"
+
+#: .\templates\package-details.html:390
+msgid "Languages"
+msgstr "Языки"
+
+#: .\templates\package-details.html:401
+msgid "Information"
+msgstr "Информация"
+
+#: .\templates\package-details.html:409
+msgid "Travel Plan"
+msgstr "План путешествия"
+
+#: .\templates\package-details.html:417
+msgid "Our Gallery"
+msgstr "Наша Галерея"
+
+#: .\templates\package-details.html:428 .\templates\package-details.html:443
+msgid "Overview"
+msgstr "Обзор"
+
+#: .\templates\package-details.html:467
+msgid "No travel plans available"
+msgstr "Нет доступных планов поездок"
+
+#: .\templates\package-details.html:557
+msgid "Book This Package"
+msgstr "Забронировать этот пакет"
+
+#: .\templates\package-details.html:602
+msgid "Related Packages"
+msgstr "Связанные пакеты"
