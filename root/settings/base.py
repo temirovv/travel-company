@@ -10,8 +10,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 sys.path.append(str(BASE_DIR / 'apps'))
 sys.path.append(str(BASE_DIR / 'root/settings'))
 
-load_dotenv(BASE_DIR / '.env/.env.local')
-
 SECRET_KEY = ''
 
 DEBUG = False
@@ -258,14 +256,46 @@ LOGOUT_REDIRECT_URL = 'login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-PAYME: dict = {
-    'PAYME_ID': os.getenv("PAYME_ID"),
-    'PAYME_KEY': os.getenv("PAYME_KEY"),
-    'PAYME_URL': os.getenv("PAYME_URL"),
-    'PAYME_CALL_BACK_URL': os.getenv("PAYME_CALL_BACK_URL"),
-    'PAYME_MIN_AMOUNT': int(os.getenv("PAYME_MIN_AMOUNT", default=0)),
-    'PAYME_ACCOUNT': os.getenv("PAYME_ACCOUNT"),
-}
-
 ORDER_MODEL = 'apps.bookings.models.Booking'
-pprint(PAYME)
+
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format': '{levelname} {asctime} {module} {message}',
+#             'style': '{',
+#         },
+#         'simple': {
+#             'format': '{levelname} {message}',
+#             'style': '{',
+#         },
+#     },
+#     'handlers': {
+#         # Handler to log everything to a file
+#         'file': {
+#             'level': 'DEBUG',  # Log everything, including DEBUG-level messages
+#             'class': 'logging.FileHandler',
+#             'filename': os.path.join(BASE_DIR, 'django_console.log'),  # Log file path
+#             'formatter': 'verbose',
+#         },
+#         # Console handler if you want to still print logs to console
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'simple',
+#         },
+#     },
+#     'loggers': {
+#         # This catches all logs and sends them to the file
+#         'django': {
+#             'handlers': ['file', 'console'],  # Log to both file and console
+#             'level': 'DEBUG',  # Adjust this level if needed
+#             'propagate': True,  # Pass logs to parent loggers
+#         },
+#         # Root logger to capture all console output (including print statements)
+#         '': {
+#             'handlers': ['file', 'console'],
+#             'level': 'DEBUG',
+#         },
+#     },
+# }
