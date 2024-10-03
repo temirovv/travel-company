@@ -1,8 +1,8 @@
 [program:bilol_pro]
-command=/var/www/bahromtravel/.venv/bin/gunicorn --workers 3 --bind unix:/var/www/bahromtravel/pro_gunicorn.sock root.wsgi:application
-directory=/var/www/bahromtravel/
+command=/var/www/bilolhonesttravel/.venv/bin/gunicorn --workers 3 --bind unix:/var/www/bilolhonesttravel/pro_gunicorn.sock root.wsgi:application
+directory=/var/www/bilolhonesttravel/
 user=root
 autostart=true
 autorestart=true
-stderr_logfile=/var/www/bahromtravel/logs/bilol_pro.err.log
-stdout_logfile=/var/www/bahromtravel/logs/bilol_pro.out.log
+stderr_logfile=/var/www/bilolhonesttravel/logs/bilol_pro.err.log
+stdout_logfile=/var/www/bilolhonesttravel/logs/bilol_pro.out.log
