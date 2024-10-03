@@ -1,6 +1,6 @@
 # translation.py
 from modeltranslation.translator import translator, TranslationOptions, register
-from .models import TourPackage, TravelPlan, Destination
+from .models import TourPackage, TravelPlan, Destination, Activity
 
 
 @register(TourPackage)
@@ -16,3 +16,8 @@ class TravelPlanTranslationOptions(TranslationOptions):
 @register(Destination)
 class DestinationTranslationOptions(TranslationOptions):
     fields = 'name', 'description'
+
+
+@register(Activity)
+class ActivityTranslationOptions(TranslationOptions):
+    fields = 'title', 'description'
