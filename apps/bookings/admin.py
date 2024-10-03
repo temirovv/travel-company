@@ -1,3 +1,7 @@
-from django.contrib import admin
+from django.contrib.admin import ModelAdmin, register
+from .models import Booking
 
-# Register your models here.
+
+@register(Booking)
+class BookingModelAdmin(ModelAdmin):
+    list_display = 'user', 'status', 'id'
