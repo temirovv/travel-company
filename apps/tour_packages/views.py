@@ -1,6 +1,11 @@
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import View, ListView, DetailView, TemplateView
-from .models import TourPackage, Destination, PackageDisplayChoices
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import DetailView, TemplateView
+
+from .models import TourPackage, Destination
+from ..bookings.forms import BookingForm
 
 
 class HomeView(TemplateView):
@@ -16,11 +21,7 @@ class HomeView(TemplateView):
         return context
 
 
-def temp(request):
-    return render(request, 'package-details.html')
-
-
-class TourPackageDetailView(DetailView):
+class TourPackageDetailView(LoginRequiredMixin, DetailView):
     model = TourPackage
     template_name = 'package-details.html'
     context_object_name = 'package'
@@ -31,7 +32,8 @@ class TourPackageDetailView(DetailView):
         queryset = super().get_queryset().select_related().prefetch_related(
             'destinations',
             'gallery',
-            'travel_plans'
+            'travel_plans',
+            'travel_plans__activities'
         )
         return queryset
 
@@ -39,11 +41,32 @@ class TourPackageDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         package: TourPackage = self.object
 
+        context['form'] = BookingForm()
         context['gallery_images'] = package.gallery.all()
         context['travel_plans'] = package.travel_plans.all()
-
         context['related_packages'] = TourPackage.objects.filter(
-            description__in=package.destinations.all()
+            destinations__in=package.destinations.all()
         ).exclude(id=package.id).distinct().prefetch_related('gallery')[:3]
 
         return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = BookingForm(request.POST)
+
+        print(str(form.errors).encode('utf-8'))
+        if form.is_valid():
+            booking = form.save(commit=False)
+
+            booking.user = request.user
+            booking.tour_package = self.object
+            booking.amount = booking.calculate_total_price()
+
+            booking.save()
+
+            messages.success(request, 'Bron muvaffaqiyatli amalga oshirildi!')
+            print("pzids")
+            return redirect(reverse('payment', kwargs={'booking_id': booking.id}))
+
+        context = self.get_context_data(form=form)
+        return self.render_to_response(context)

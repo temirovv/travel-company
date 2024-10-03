@@ -126,7 +126,7 @@ class TravelPlan(Model):
 
 class Activity(Model):
     travel_plan = ForeignKey('TravelPlan', on_delete=CASCADE, related_name='activities')
-    activity_title = CharField(max_length=255, help_text="Faoliyatning nomi") # noqa
+    title = CharField(max_length=255, help_text="Faoliyatning nomi") # noqa
     description = TextField(help_text="Faoliyat haqida qisqacha tavsif") # noqa
     start_time = TimeField(help_text="Faoliyatning boshlanish vaqti") # noqa
     end_time = TimeField(help_text="Faoliyatning tugash vaqti", blank=True, null=True) # noqa
