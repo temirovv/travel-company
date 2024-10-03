@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load humanize %}
 
 <!doctype html>
 <html lang="en">
@@ -361,7 +362,7 @@
                         </div>
                         <div class="package-details">
                             <div class="package-info">
-                                <h5><span>{{ package.price }} Som</span>/{% trans "Per Person" %}</h5>
+                                <h5><span>{{ package.price|floatformat:0|intcomma }} Som</span>/{% trans "Per Person" %}</h5>
                                 <h5><i class="flaticon-calendar"></i>{{ package.duration }} {% trans "Days" %}/{{ package.duration }} {% trans "Night" %}</h5>
                             </div>
                             <h3><i class="flaticon-arrival"></i>
