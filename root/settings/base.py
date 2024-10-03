@@ -13,7 +13,7 @@ load_dotenv(BASE_DIR / '.env/.env.local')
 
 SECRET_KEY = ''
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     # custom apps
     'users',
@@ -32,15 +33,19 @@ INSTALLED_APPS = [
     'payments',
     'tour_packages',
     'user_reviews',
+    'bookings',
 
     # third party apps
     'django_ckeditor_5',
-    'rest_framework'
+    'rest_framework',
+    'payme',
+    'modeltranslation',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -95,13 +100,25 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uz'
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
+USE_L10N = True
 
 USE_TZ = True
+
+LANGUAGES = [
+    ('uz', 'Uzbek'),
+    ('ru', 'Russian'),
+    ('en', 'English'),
+]
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
@@ -233,3 +250,20 @@ CKEDITOR_5_CONFIGS = {
 PAYME_MERCHANT_ID = os.getenv('PAYME_MERCHANT_ID')
 PAYME_SECRET_KEY = os.getenv('PAYME_SECRET_KEY')
 PAYME_API_URL = 'https://checkout.paycom.uz/api'
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+PAYME: dict = {
+    'PAYME_ID': os.getenv("PAYME_ID"),
+    'PAYME_KEY': os.getenv("PAYME_KEY"),
+    'PAYME_URL': os.getenv("PAYME_URL"),
+    'PAYME_CALL_BACK_URL': os.getenv("PAYME_CALL_BACK_URL"),
+    'PAYME_MIN_AMOUNT': int(os.getenv("PAYME_MIN_AMOUNT", default=0)),
+    'PAYME_ACCOUNT': os.getenv("PAYME_ACCOUNT"),
+}
+
+ORDER_MODEL = 'apps.bookings.models.Booking'
