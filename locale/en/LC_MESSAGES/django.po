@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-03 11:23+0500\n"
+"POT-Creation-Date: 2024-10-04 03:09+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr ""
 
 #: .\templates\index.html:215 .\templates\index.html:614
 #: .\templates\package-details.html:217 .\templates\package-details.html:218
-#: .\templates\package-details.html:713
+#: .\templates\package-details.html:715
 msgid "About us"
 msgstr ""
 
@@ -112,7 +112,7 @@ msgid "Follow Us"
 msgstr ""
 
 #: .\templates\index.html:582 .\templates\index.html:613
-#: .\templates\package-details.html:683 .\templates\package-details.html:712
+#: .\templates\package-details.html:683 .\templates\package-details.html:714
 msgid "Contact us"
 msgstr ""
 
@@ -130,32 +130,31 @@ msgstr ""
 "                                            Kumariq MFY, Kum-Ariq, <br>\n"
 "                                            9 Proyezd street, 20-UY"
 
-
-#: .\templates\index.html:610 .\templates\package-details.html:709
+#: .\templates\index.html:610 .\templates\package-details.html:711
 msgid "support"
 msgstr ""
 
-#: .\templates\index.html:615 .\templates\package-details.html:714
+#: .\templates\index.html:615 .\templates\package-details.html:716
 msgid "Services"
 msgstr ""
 
-#: .\templates\index.html:616 .\templates\package-details.html:715
+#: .\templates\index.html:616 .\templates\package-details.html:717
 msgid "Our Blogs"
 msgstr ""
 
-#: .\templates\index.html:617 .\templates\package-details.html:716
+#: .\templates\index.html:617 .\templates\package-details.html:718
 msgid "terms and conditions"
 msgstr ""
 
-#: .\templates\index.html:624 .\templates\package-details.html:723
+#: .\templates\index.html:624 .\templates\package-details.html:725
 msgid "We Accepts"
 msgstr ""
 
-#: .\templates\index.html:636 .\templates\package-details.html:735
+#: .\templates\index.html:636 .\templates\package-details.html:737
 msgid "Copyright"
 msgstr ""
 
-#: .\templates\index.html:636 .\templates\package-details.html:735
+#: .\templates\index.html:636 .\templates\package-details.html:737
 msgid "All rights reserverd"
 msgstr ""
 
@@ -218,3 +217,28 @@ msgstr ""
 #: .\templates\package-details.html:602
 msgid "Related Packages"
 msgstr ""
+
+#: .\templates\package-details.html:618
+msgid "So'm"
+msgstr "Som"
+
+#: .\templates\package-details.html:701
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "                                            Toshkent Shahri, Sergeli "
+#| "tumani, <br> \n"
+#| "                                            Qumariq MFY, Qum-Ariq, <br>\n"
+#| "                                            9Proyezd ko'chasi, 20-UY"
+msgid ""
+"\n"
+"                                            Toshkent Shahri, Sergeli tumani, "
+"<br>\n"
+"                                            Qumariq MFY, Qum-Ariq, <br>\n"
+"                                            9Proyezd ko'chasi, 20-UY"
+msgstr ""
+"\n"
+"                                            Tashkent City, Sergeli district, "
+"<br> \n"
+"                                            Kumariq MFY, Kum-Ariq, <br>\n"
+"                                            9 Proyezd street, 20-UY"

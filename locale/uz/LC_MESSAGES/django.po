@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-03 11:22+0500\n"
+"POT-Creation-Date: 2024-10-04 03:09+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr "Chiqish"
 
 #: .\templates\index.html:215 .\templates\index.html:614
 #: .\templates\package-details.html:217 .\templates\package-details.html:218
-#: .\templates\package-details.html:713
+#: .\templates\package-details.html:715
 msgid "About us"
 msgstr "Biz haqimizda"
 
@@ -69,7 +69,7 @@ msgstr "Kun"
 
 #: .\templates\index.html:289
 msgid "Nights Tour"
-msgstr ""
+msgstr "Kecha sayohati"
 
 #: .\templates\index.html:291
 msgid "Book Now"
@@ -116,7 +116,7 @@ msgid "Follow Us"
 msgstr "Bizni kuzatib boring"
 
 #: .\templates\index.html:582 .\templates\index.html:613
-#: .\templates\package-details.html:683 .\templates\package-details.html:712
+#: .\templates\package-details.html:683 .\templates\package-details.html:714
 msgid "Contact us"
 msgstr "Biz bilan aloqa"
 
@@ -129,37 +129,37 @@ msgid ""
 "                                            9Proyezd ko'chasi, 20-UY"
 msgstr ""
 
-#: .\templates\index.html:610 .\templates\package-details.html:709
+#: .\templates\index.html:610 .\templates\package-details.html:711
 msgid "support"
 msgstr "Qo'llab Quvvatlash"
 
-#: .\templates\index.html:615 .\templates\package-details.html:714
+#: .\templates\index.html:615 .\templates\package-details.html:716
 msgid "Services"
 msgstr "Xizmatlar"
 
-#: .\templates\index.html:616 .\templates\package-details.html:715
+#: .\templates\index.html:616 .\templates\package-details.html:717
 msgid "Our Blogs"
 msgstr "Bizning Blog"
 
-#: .\templates\index.html:617 .\templates\package-details.html:716
+#: .\templates\index.html:617 .\templates\package-details.html:718
 msgid "terms and conditions"
 msgstr "foydalanish shartlari"
 
-#: .\templates\index.html:624 .\templates\package-details.html:723
+#: .\templates\index.html:624 .\templates\package-details.html:725
 msgid "We Accepts"
 msgstr "Qabul qilamiz"
 
-#: .\templates\index.html:636 .\templates\package-details.html:735
+#: .\templates\index.html:636 .\templates\package-details.html:737
 msgid "Copyright"
 msgstr "Mualliflik huquqi"
 
-#: .\templates\index.html:636 .\templates\package-details.html:735
+#: .\templates\index.html:636 .\templates\package-details.html:737
 msgid "All rights reserverd"
-msgstr ""
+msgstr "Barcha huquqlar himoyalangan"
 
 #: .\templates\package-details.html:318
 msgid "Tour Package Details"
-msgstr "Barcha huquqlar himoyalangan"
+msgstr "Tur Paket tafsilotlari"
 
 #: .\templates\package-details.html:321 .\templates\package-details.html:322
 msgid "Home"
@@ -216,3 +216,16 @@ msgstr "Ushbu paketni bron qiling"
 #: .\templates\package-details.html:602
 msgid "Related Packages"
 msgstr "Aloqador paketlar"
+
+#: .\templates\package-details.html:618
+msgid "So'm"
+msgstr ""
+
+#: .\templates\package-details.html:701
+msgid ""
+"\n"
+"                                            Toshkent Shahri, Sergeli tumani, "
+"<br>\n"
+"                                            Qumariq MFY, Qum-Ariq, <br>\n"
+"                                            9Proyezd ko'chasi, 20-UY"
+msgstr ""
