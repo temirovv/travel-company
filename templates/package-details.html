@@ -575,7 +575,7 @@ x{% load static %}
                                         
                                         <!-- Booking Date Field (Django Form) -->
                                         <div class="col-lg-12">
-                                            <div>
+                                            <div class="calendar-input">
                                                 {{ form.booking_date }}
                                                 <i class="flaticon-calendar"></i>
                                             </div>
@@ -615,7 +615,7 @@ x{% load static %}
                                                     <h3><i class="flaticon-arrival"></i>
                                                         <a href="{% url 'package_detail' related_package.slug %}">{{ related_package.title }}</a>
                                                     </h3>
-                                                    <h5><span>${{ related_package.price }}</span>/ {% trans "Per Person" %}</h5>
+                                                    <h5><span>{{ related_package.price }} {% trans "So'm" %}</span>/ {% trans "Per Person" %}</h5>
                                                 </div>
                                             </li>
                                         {% endfor %}
