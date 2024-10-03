@@ -1,9 +1,10 @@
 {% load static %}
+{% load i18n %}
 
 <!doctype html>
 <html lang="en">
 <head>
-<title>TourX - Tours and Travel HTML5 Template</title>
+<title>Bilol Honest Travel</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -25,7 +26,49 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'tour_packages/assets/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'tour_packages/assets/css/responsive.css' %}">
+    <style>
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+        }
 
+        .dropdown-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .language-dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .language-dropdown:hover .dropdown-btn {
+            background-color: #3e8e41;
+        }
+    </style>
 </head>
 <body>
 
@@ -89,12 +132,18 @@
                  </div>
 
                  <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-6">
-                       <div class="custom-select languege-select">
-                            <select>
-                              <option value="0">UZ</option>
-                              <option value="1">ENG</option>
-                              <option value="2">RU</option>
-                            </select>
+                          <div class="language-dropdown">
+                            <button class="dropdown-btn">
+                                {% get_current_language as LANGUAGE_CODE %}
+                                {{ LANGUAGE_CODE|upper }}
+                                <i class="bx bxs-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                {% get_available_languages as LANGUAGES %}
+                                {% for lang in LANGUAGES %}
+                                    <a href="javascript:void(0)" class="language-option" data-lang="{{ lang.0 }}">{{ lang.1 }}</a>
+                                {% endfor %}
+                            </div>
                         </div>
                  </div>
              </div>
@@ -126,19 +175,19 @@
                                     <ul>
                                         <li class="account-el">
                                             <i class='bx bx-user-pin'></i>
-                                            <a href="#">Sign in</a>
+                                            <a href="#">{% trans "Sign in" %}</a>
                                         </li>
                                       <li class="account-el">
                                           <i class='bx bxs-user-account'></i>
-                                          <a href="#">My Account</a>
+                                          <a href="#">{% trans "My Account" %}</a>
                                       </li>
                                       <li class="account-el">
                                           <i class='bx bx-extension'></i>
-                                          <a href="#">Settings</a>
+                                          <a href="#">{% trans "Settings" %}</a>
                                       </li>
                                       <li class="account-el">
                                         <i class='bx bx-log-in-circle'></i>
-                                        <a href="#">Log out</a>
+                                        <a href="#">{% trans "Log out" %}</a>
                                     </li>
                                     </ul>
                                   </div>
@@ -146,7 +195,7 @@
                             <div class="mobile-menu d-flex ">
                                 <div class="top-search-bar m-0 d-block d-xl-none">
                                 </div>
-                    
+
                                 <a href="javascript:void(0)" class="hamburger d-block d-xl-none">
                                     <span class="h-top"></span>
                                     <span class="h-middle"></span>
@@ -156,55 +205,21 @@
                         </div>
                        </div>
                     </div>
-                    
+
                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                         <nav class="main-nav">
                             <div class="navber-logo-sm">
                                 <img src="{% static 'tour_packages/assets/images/logo-2.png' %}" alt="" class="img-fluid">
                             </div>
                             <ul>
-{#                                <li class="has-child-menu">#}
-{#                                    <a href="javascript:void(0)">Home</a>#}
-{#                                    <i class="fl flaticon-plus">+</i>#}
-{#                                    <ul class="sub-menu">#}
-{#                                        <li><a href="index.html" class="sub-item">Home Page 1</a></li>#}
-{#                                        <li><a href="index2.html" class="sub-item">Home Page 2</a></li>#}
-{#                                    </ul>#}
-{#                                </li>#}
-                                <li><a href="about.html">About us </a></li>
-                                <li><a href="destination.html">Destinations </a></li>
+                                <li><a href="#">{% trans "About us" %}</a></li>
+                                <li><a href="#">{% trans "Destinations" %}</a></li>
                                 <li class="has-child-menu">
-                                    <a href="javascript:void(0)">Tour Package</a>
+                                    <a href="javascript:void(0)">{% trans "Tour Package" %}</a>
                                     <i class="fl flaticon-plus">+</i>
-                                    <ul class="sub-menu">
-                                        <li><a href="package.html" class="sub-item">package</a></li>
-                                        <li><a href="package-sidebar.html" class="sub-item">package sidebar</a></li>
-                                        <li><a href="package-standard.html" class="sub-item">package standard</a></li>
-                                        <li><a href="package-details.html" class="sub-item">package details</a></li>
-                                    </ul>
                                 </li>
-                                <li class="has-child-menu">
-                                    <a href="javascript:void(0)">Blogs</a>
-                                    <i class="fl flaticon-plus">+</i>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog.html" class="sub-item">Blog page</a></li>
-                                        <li><a href="blog-sidebar.html" class="sub-item">Blog sidebar</a></li>
-                                        <li><a href="blog-standard.html" class="sub-item">Blog standard</a></li>
-                                        <li><a href="blog-details.html" class="sub-item">blog-details </a></li>
-                                    </ul>
-                                </li>
-                                <li class="has-child-menu">
-                                    <a href="javascript:void(0)">Pages</a>
-                                    <i class="fl flaticon-plus">+</i>
-                                    <ul class="sub-menu">
-                                        <li><a href="gallary.html" class="sub-item">gallary page</a></li>
-                                        <li><a href="guide.html" class="sub-item">guide page</a></li>
-                                        <li><a href="destination.html" class="sub-item">destination page</a></li>
-                                        <li><a href="404.html" class="sub-item">error page </a></li>
-                                        <li><a href="faq.html" class="sub-item">FAQ page </a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html">Contact Us </a></li>
+
+                                <li><a href="#">{% trans "Contact Us" %}</a></li>
                             </ul>
                             <div class="navbar-icons-2">
                                 <div class="searchbar-open">
@@ -216,19 +231,19 @@
                                         <ul>
                                             <li class="account-el">
                                                 <i class='bx bx-user-pin'></i>
-                                                <a href="#">Sign in</a>
+                                                <a href="#">{% trans "Sign in" %}</a>
                                             </li>
                                           <li class="account-el">
                                               <i class='bx bxs-user-account'></i>
-                                              <a href="#">My Account</a>
+                                              <a href="#">{% trans "My Account" %}</a>
                                           </li>
                                           <li class="account-el">
                                               <i class='bx bx-extension'></i>
-                                              <a href="#">Settings</a>
+                                              <a href="#">{% trans "Settings" %}</a>
                                           </li>
                                           <li class="account-el">
                                             <i class='bx bx-log-in-circle'></i>
-                                            <a href="#">Log out</a>
+                                            <a href="#">{% trans "Log out" %}</a>
                                         </li>
                                         </ul>
                                       </div>
@@ -260,897 +275,263 @@
     <!-- ===============  header area end =============== -->
 
     <!-- ===============  Main banner area start =============== -->
-    
-{#    <div class="main-banner">#}
-{#        <div class="banner-slider owl-carousel">#}
-{#            {% for package in main_banner_packages %}#}
-{#                <div class="slider-item slider-item-{{ forloop.counter }}">#}
-{#                    <div class="container">#}
-{#                        <div class="slider-content wow fadeInLeft animated" data-wow-delay="300ms" data-wow-duration="1500ms" >#}
-{#                            <h2>Amazing Tour In {{ package.destinations.all.0.name }}</h2>#}
-{#                            <h5>{{ package.duration }} Days, {{ package.duration - 1 }} Nights Tour</h5>#}
-{#                            <div class="banner-btn">#}
-{#                                <a href="{% url 'package_detail' package.slug %}" class="btn-common">Book Now</a>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            {% endfor %}#}
-{#        </div>#}
-{#    </div>#}
 
-    
     <div class="main-banner">
         <div class="banner-slider owl-carousel">
-            <div class="slider-item slider-item-1">
-                <div class="container">
-                    <div class="slider-content wow fadeInLeft animated" data-wow-delay="300ms" data-wow-duration="1500ms" >
-                        <h2>Amazing Tour In
-                            Hampshire </h2>
-                            <h5>7 Days, 8 Night Tour</h5>
+            {% for package in main_banner_packages %}
+                <div class="slider-item slider-item-{{ forloop.counter }}"
+                     style="background: linear-gradient(rgba(48, 79, 71, 0.65) 100%, rgba(48, 79, 71, 0.65) 100%),
+                            url('{{ package.gallery.first.image.url }}');
+                            background-size: cover; background-position: center;">
+                    <div class="container">
+                        <div class="slider-content wow fadeInLeft animated" data-wow-delay="300ms" data-wow-duration="1500ms" >
+                            <h2>{% trans "Amazing Tour In" %} {{ package.title }}</h2>
+                            <h5>{{ package.duration }} {% trans "Days" %}, {{ package.duration }} {% trans "Nights Tour" %}r</h5>
                             <div class="banner-btn">
-                                <a href="package.html" class="btn-common">Book Now</a>
+                                <a href="{% url 'package_detail' package.slug %}" class="btn-common">{% trans "Book Now" %}</a>
                             </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="slider-item slider-item-2">
-                <div class="container">
-                    <div class="slider-content wow fadeInLeft animated" data-wow-delay="300ms" data-wow-duration="1500ms" >
-                        <h2>Amazing Tour In
-                            Indonesia </h2>
-                            <h5>7 Days, 8 Night Tour</h5>
-                            <div class="banner-btn">
-                                <a href="package.html" class="btn-common">Book Now</a>
-                            </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slider-item slider-item-3">
-                <div class="container">
-                    <div class="slider-content wow fadeInLeft animated" data-wow-delay="300ms" data-wow-duration="1500ms" >
-                        <h2>Amazing Tour In
-                            madagascar </h2>
-                            <h5>7 Days, 8 Night Tour</h5>
-                            <div class="banner-btn">
-                                <a href="package.html" class="btn-common">Book Now</a>
-                            </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
+
     <!-- ===============  Main banner area end =============== -->
 
-    <!-- ===============  findfrom area start ============= -->
-    <div class="find-form">
-          <div class="container">
-              <form class="findfrom-wrapper">
-                  <div class="row">
-                      <div class="col-lg-3">
-                          <input type="text" name="whereto" placeholder="Where To...">
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="calendar-input">
-                            <input type="text" name="check-in" class="input-field check-in" placeholder="dd-mm-yy">
-                            <i class="flaticon-calendar"></i>
-                        </div>
-                      </div>
-                      <div class="col-lg-3">
-                        <div class="custom-select">
-                            <select>
-                                <option value="0">Travel Type</option>
-                                  <option value="1">City Tours</option>
-                                  <option value="2">Vacation Tours</option>
-                                  <option value="3">Couple Tours </option>
-                                  <option value="4">Adventure Tours</option>
-                                  <option value="5">Group Tours</option>
-                            </select>
-                          </div>
-                      </div>
-                      <div class="col-lg-3">
-                          <div class="find-btn">
-                              <a href="#" class="btn-second"><i class='bx bx-search-alt'></i> Find now</a>
-                          </div>
-                      </div>
-                  </div>
-              </form>
-          </div>
-    </div>
-    <!-- ===============  findfrom area end =============== -->
+{#    <!-- ===============  findfrom area start ============= -->#}
+{#    <div class="find-form">#}
+{#          <div class="container">#}
+{#              <form class="findfrom-wrapper">#}
+{#                  <div class="row">#}
+{#                      <div class="col-lg-3">#}
+{#                          <input type="text" name="whereto" placeholder="Where To...">#}
+{#                      </div>#}
+{#                      <div class="col-lg-3">#}
+{#                        <div class="calendar-input">#}
+{#                            <input type="text" name="check-in" class="input-field check-in" placeholder="dd-mm-yy">#}
+{#                            <i class="flaticon-calendar"></i>#}
+{#                        </div>#}
+{#                      </div>#}
+{#                      <div class="col-lg-3">#}
+{#                        <div class="custom-select">#}
+{#                            <select>#}
+{#                                <option value="0">Travel Type</option>#}
+{#                                  <option value="1">City Tours</option>#}
+{#                                  <option value="2">Vacation Tours</option>#}
+{#                                  <option value="3">Couple Tours </option>#}
+{#                                  <option value="4">Adventure Tours</option>#}
+{#                                  <option value="5">Group Tours</option>#}
+{#                            </select>#}
+{#                          </div>#}
+{#                      </div>#}
+{#                      <div class="col-lg-3">#}
+{#                          <div class="find-btn">#}
+{#                              <a href="#" class="btn-second"><i class='bx bx-search-alt'></i> Find now</a>#}
+{#                          </div>#}
+{#                      </div>#}
+{#                  </div>#}
+{#              </form>#}
+{#          </div>#}
+{#    </div>#}
+{#    <!-- ===============  findfrom area end =============== -->#}
 
      <!-- ===============  Package  area start =============== -->
-{#    <div class="package-area pt-120">#}
-{#        <div class="container">#}
-{#            <div class="row">#}
-{#                <div class="col-lg-12 col-md-12 col-sm-12">#}
-{#                    <div class="section-head pb-45">#}
-{#                        <h5>Choose Your Package</h5>#}
-{#                        <h2>Select Your best Package For Your Travel</h2>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#            <div class="row">#}
-{#                {% for package in regular_tour_packages %}#}
-{#                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInUp animated" data-wow-duration="1500ms" data-wow-delay="{{ forloop.counter0|add:300 }}ms">#}
-{#                    <div class="package-card">#}
-{#                        <div class="package-thumb">#}
-{#                            <!-- Paketga tegishli birinchi rasmni ko'rsatish -->#}
-{#                            {% if package.gallery.all %}#}
-{#                                <img src="{{ package.gallery.all.0.image.url }}" alt="{{ package.title }}" class="img-fluid">#}
-{#                            {% else %}#}
-{#                                <img src="{% static 'tour_packages/assets/images/default.png' %}" alt="{{ package.title }}" class="img-fluid">#}
-{#                            {% endif %}#}
-{#                        </div>#}
-{#                        <div class="package-details">#}
-{#                            <div class="package-info">#}
-{#                                <h5><span>${{ package.price }}</span>/Per Person</h5>#}
-{#                                <h5><i class="flaticon-calendar"></i>{{ package.duration }} Days/{{ package.duration - 1 }} Night</h5>#}
-{#                            </div>#}
-{#                            <h3><i class="flaticon-arrival"></i>#}
-{#                                <a href="{% url 'package_detail' package.slug %}">{{ package.title }}</a>#}
-{#                            </h3>#}
-{#                            <div class="package-rating">#}
-{#                                <strong><i class='bx bxs-star'></i><span>{{ package.review_count }}+</span> Rating</strong>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{#                {% endfor %}#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-
-    
     <div class="package-area pt-120">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="section-head pb-45">
-                        <h5>Choose Your Package</h5>
-                        <h2>Select Your best Package For Your Travel</h2>
+                        <h5>{% trans "Choose Your Package" %}</h5>
+                        <h2>{% trans "Select Your best Package For Your Travel" %}</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInUp animated" data-wow-duration="1500ms" data-wow-delay="0ms">
+                {% for package in regular_tour_packages %}
+                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInUp animated" data-wow-duration="1500ms" data-wow-delay="{{ forloop.counter0|add:300 }}ms">
                     <div class="package-card">
                         <div class="package-thumb">
-                            <img src="{% static 'tour_packages/assets/images/package/p-1.png' %}" alt="" class="img-fluid">
+                            <!-- Paketga tegishli birinchi rasmni ko'rsatish -->
+                            {% if package.gallery.all %}
+                                <img src="{{ package.gallery.all.0.image.url }}" alt="{{ package.title }}" class="img-fluid">
+                            {% else %}
+                                <img src="{% static 'tour_packages/assets/images/default.png' %}" alt="{{ package.title }}" class="img-fluid">
+                            {% endif %}
                         </div>
                         <div class="package-details">
                             <div class="package-info">
-                                <h5><span>$180</span>/Per Person</h5>
-                                <h5><i class="flaticon-calendar"></i>5 Days/6 night</h5>
+                                <h5><span>${{ package.price }}</span>/{% trans "Per Person" %}</h5>
+                                <h5><i class="flaticon-calendar"></i>{{ package.duration }} {% trans "Days" %}/{{ package.duration }} {% trans "Night" %}</h5>
                             </div>
                             <h3><i class="flaticon-arrival"></i>
-                                <a href="package-details.html">Paris Hill Tour</a>
+                                <a href="{% url 'package_detail' package.slug %}">{{ package.title }}</a>
                             </h3>
-                            <div class="package-rating">
-                               <strong><i class='bx bxs-star'></i><span>8K+</span> Rating</strong>
-                            </div>
+                            {% if package.review_count %}
+                                <div class="package-rating">
+                                    <strong><i class='bx bxs-star'></i><span>{{ package.review_count }}+</span> {% trans "Night" %}</strong>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInUp animated" data-wow-duration="1500ms" data-wow-delay="300ms">
-                    <div class="package-card">
-                        <div class="package-thumb">
-                            <img src="{% static 'tour_packages/assets/images/package/p-2.png' %}" alt="" class="img-fluid">
-                        </div>
-                        <div class="package-details">
-                            <div class="package-info">
-                                <h5><span>$280</span>/Per Person</h5>
-                                <h5><i class="flaticon-calendar"></i>5 Days/6 night</h5>
-                            </div>
-                            <h3><i class="flaticon-arrival"></i>
-                                <a href="package-details.html">Lake Garda, Italy</a>
-                            </h3>
-                            <div class="package-rating">
-                               <strong><i class='bx bxs-star'></i><span>8K+</span> Rating</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInUp animated" data-wow-duration="1500ms" data-wow-delay="600ms">
-                    <div class="package-card">
-                        <div class="package-thumb">
-                            <img src="{% static 'tour_packages/assets/images/package/p-3.png' %}" alt="" class="img-fluid">
-                        </div>
-                        <div class="package-details">
-                            <div class="package-info">
-                                <h5><span>$120</span>/Per Person</h5>
-                                <h5><i class="flaticon-calendar"></i>5 Days/6 night</h5>
-                            </div>
-                            <h3><i class="flaticon-arrival"></i>
-                                <a href="package-details.html">Mount Dtna, Italyr</a>
-                            </h3>
-                            <div class="package-rating">
-                               <strong><i class='bx bxs-star'></i><span>8K+</span> Rating</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInUp animated" data-wow-duration="1500ms" data-wow-delay="0ms">
-                    <div class="package-card">
-                        <div class="package-thumb">
-                            <img src="{% static 'tour_packages/assets/images/package/p-4.png' %}" alt="" class="img-fluid">
-                        </div>
-                        <div class="package-details">
-                            <div class="package-info">
-                                <h5><span>$300</span>/Per Person</h5>
-                                <h5><i class="flaticon-calendar"></i>5 Days/6 night</h5>
-                            </div>
-                            <h3><i class="flaticon-arrival"></i>
-                                <a href="package-details.html">Amalfi Costa, Italy</a>
-                            </h3>
-                            <div class="package-rating">
-                               <strong><i class='bx bxs-star'></i><span>8K+</span> Rating</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInUp animated" data-wow-duration="1500ms" data-wow-delay="300ms">
-                    <div class="package-card">
-                        <div class="package-thumb">
-                            <img src="{% static 'tour_packages/assets/images/package/p-5.png' %}" alt="" class="img-fluid">
-                        </div>
-                        <div class="package-details">
-                            <div class="package-info">
-                                <h5><span>$240</span>/Per Person</h5>
-                                <h5><i class="flaticon-calendar"></i>5 Days/6 night</h5>
-                            </div>
-                            <h3><i class="flaticon-arrival"></i>
-                                <a href="package-details.html">French Rivira, France</a>
-                            </h3>
-                            <div class="package-rating">
-                               <strong><i class='bx bxs-star'></i><span>8K+</span> Rating</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInUp animated" data-wow-duration="1500ms" data-wow-delay="600ms">
-                    <div class="package-card">
-                        <div class="package-thumb">
-                            <img src="{% static 'tour_packages/assets/images/package/p-6.png' %}" alt="" class="img-fluid">
-                        </div>
-                        <div class="package-details">
-                            <div class="package-info">
-                                <h5><span>$145</span>/Per Person</h5>
-                                <h5><i class="flaticon-calendar"></i>5 Days/6 night</h5>
-                            </div>
-                            <h3><i class="flaticon-arrival"></i>
-                                <a href="package-details.html">Lake Geneva, France</a>
-                            </h3>
-                            <div class="package-rating">
-                               <strong><i class='bx bxs-star'></i><span>8K+</span> Rating</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
-     
+
+
     <!-- ===============  Package  area end =============== -->
 
-     <!-- =============== Destinations area start =============== -->
 
-
-{#    <div class="destinations-area pt-105">#}
+{#    <!-- ===============  Feature area start =============== -->#}
+{#    <div class="feature-area mt-120 p-80">#}
 {#        <div class="container">#}
 {#            <div class="row">#}
 {#                <div class="col-lg-12 col-md-12 col-sm-12">#}
-{#                    <div class="section-head pb-40">#}
-{#                        <h5>Popular Destinations</h5>#}
-{#                        <h2>Select Our Best Popular Destinations</h2>#}
+{#                    <div class="section-head pb-60">#}
+{#                        <h5>Feature Tours</h5>#}
+{#                        <h2>See Our Best Popular Package</h2>#}
 {#                    </div>#}
 {#                </div>#}
 {#            </div>#}
-{#    #}
 {#            <div class="row">#}
-{#                {% for destination in destinations %}#}
-{#                <div class="col-lg-3 col-md-3">#}
-{#                    <div class="package-slider-wrap">#}
-{#                        <img src="{{ destination.gallery.all.0.image.url }}" alt="{{ destination.name }}" class="img-fluid">#}
-{#                        <div class="pakage-overlay">#}
-{#                            <strong>{{ destination.country }}</strong>#}
-{#                        </div>#}
-{#                    </div>#}
+{#                <div class="col-lg-12">#}
+{#                   <div class="feature-slider owl-carousel">#}
+{#                       <div class="feature-card">#}
+{#                           <div class="feature-img">#}
+{#                               <img src="{% static 'tour_packages/assets/images/feature/f-1.png' %}" alt="" class="img-fluid">#}
+{#                           </div>#}
+{#                           <div class="feature-content">#}
+{#                                <a href="package-details.html" class="title">Group Travel Go To Bea#}
+{#                                    Amsterdam</a>#}
+{#                                <h5><i class='bx bxs-star'></i><span> 7K+</span>Rating</h5>#}
+{#                                <strong>$150 <span>$200</span></strong>#}
+{#                           </div>#}
+{#                       </div>#}
+{#                       <div class="feature-card">#}
+{#                           <div class="feature-img">#}
+{#                               <img src="{% static 'tour_packages/assets/images/feature/f-2.png' %}" alt="" class="img-fluid">#}
+{#                           </div>#}
+{#                           <div class="feature-content">#}
+{#                            <a href="package-details.html" class="title">Group Travel Go To Bea#}
+{#                                Amsterdam</a>#}
+{#                                <h5><i class='bx bxs-star'></i><span> 7K+</span>Rating</h5>#}
+{#                                <strong>$150 <span>$200</span></strong>#}
+{#                           </div>#}
+{#                       </div>#}
+{#                       <div class="feature-card">#}
+{#                           <div class="feature-img">#}
+{#                               <img src="{% static 'tour_packages/assets/images/feature/f-1.png' %}" alt="" class="img-fluid">#}
+{#                           </div>#}
+{#                           <div class="feature-content">#}
+{#                            <a href="package-details.html" class="title">Group Travel Go To Bea#}
+{#                                Amsterdam</a>#}
+{#                                <h5><i class='bx bxs-star'></i><span> 7K+</span>Rating</h5>#}
+{#                                <strong>$150 <span>$200</span></strong>#}
+{#                           </div>#}
+{#                       </div>#}
+{#                       <div class="feature-card">#}
+{#                           <div class="feature-img">#}
+{#                               <img src="{% static 'tour_packages/assets/images/feature/f-2.png' %}" alt="" class="img-fluid">#}
+{#                           </div>#}
+{#                           <div class="feature-content">#}
+{#                                <a href="package-details.html" class="title">Group Travel Go To Bea#}
+{#                                Amsterdam</a>#}
+{#                                <h5><i class='bx bxs-star'></i><span> 7K+</span>Rating</h5>#}
+{#                                <strong>$150 <span>$200</span></strong>#}
+{#                           </div>#}
+{#                       </div>#}
+{#                       <div class="feature-card">#}
+{#                           <div class="feature-img">#}
+{#                               <img src="{% static 'tour_packages/assets/images/feature/f-1.png' %}" alt="" class="img-fluid">#}
+{#                           </div>#}
+{#                           <div class="feature-content">#}
+{#                            <a href="package-details.html" class="title">Group Travel Go To Bea#}
+{#                                Amsterdam</a>#}
+{#                                <h5><i class='bx bxs-star'></i><span> 7K+</span>Rating</h5>#}
+{#                                <strong>$150 <span>$200</span></strong>#}
+{#                           </div>#}
+{#                       </div>#}
+{#                   </div>#}
 {#                </div>#}
-{#                <div class="col-lg-9 col-md-9">#}
-{#                    <div class="row owl-carousel destinations-1">#}
-{#                        {% for package in destination.tour_packages.all %}#}
-{#                        <div class="package-card">#}
-{#                            <div class="package-thumb">#}
-{#                                {% if package.gallery.all %}#}
-{#                                    <img src="{{ package.gallery.all.0.image.url }}" alt="{{ package.title }}" class="img-fluid">#}
-{#                                {% else %}#}
-{#                                    <img src="{% static 'tour_packages/assets/images/default.png' %}" alt="{{ package.title }}" class="img-fluid">#}
-{#                                {% endif %}#}
-{#                            </div>#}
-{#                            <div class="package-details">#}
-{#                                <div class="package-info">#}
-{#                                    <h5><span>${{ package.price }}</span>/Per Person</h5>#}
-{#                                </div>#}
-{#                                <h3><i class="flaticon-arrival"></i>#}
-{#                                    <a href="{% url 'package_detail' package.slug %}">{{ package.title }}</a>#}
-{#                                </h3>#}
-{#                                <div class="package-rating">#}
-{#                                    <i class='bx bxs-star'></i>#}
-{#                                    <strong><span>{{ package.review_count }}+</span> Rating</strong>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        {% endfor %}#}
-{#                    </div>#}
-{#                </div>#}
-{#                {% endfor %}#}
 {#            </div>#}
 {#        </div>#}
 {#    </div>#}
-    
-     <div class="destinations-area pt-105">
-         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="section-head pb-40">
-                        <h5>Popular Destinations</h5>
-                        <h2>Select Our Best Popular Destinations</h2>
-                    </div>
-                </div>
-            </div>
+{#    <!-- ===============  Feature area start =============== -->#}
 
-            <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="package-slider-wrap">
-                        <img src="{% static 'tour_packages/assets/images/destination/d-1.png' %}" alt="" class="img-fluid">
-                        <div class="pakage-overlay">
-                            <strong>Spain</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9 col-md-9">
-                    <div class="row owl-carousel destinations-1">
-                        <div class="package-card">
-                            <div class="package-thumb">
-                                <img src="{% static 'tour_packages/assets/images/destination/d-4.png' %}" alt="" class="img-fluid">
-                            </div>
-                            <div class="package-details">
-                                <div class="package-info">
-                                    <h5><span>$145</span>/Per Person</h5>
-                                </div>
-                                <h3><i class="flaticon-arrival"></i>
-                                    <a href="package-details.html">Paris Hill Tour</a>
-                                </h3>
-                                <div class="package-rating">
-                                   <i class='bx bxs-star'></i>
-                                   <strong><span>1.3K+</span> Rating</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="package-card">
-                            <div class="package-thumb">
-                                <img src="{% static 'tour_packages/assets/images/destination/d-5.png' %}" alt="" class="img-fluid">
-                            </div>
-                            <div class="package-details">
-                                <div class="package-info">
-                                    <h5><span>$240</span>/Per Person</h5>
-                                   
-                                </div>
-                                <h3><i class="flaticon-arrival"></i>
-                                    <a href="package-details.html">Lake Garda, Spain</a>
-                                </h3>
-                                <div class="package-rating">
-                                    <i class='bx bxs-star'></i>
-                                    <strong><span>1.3K+</span> Rating</strong>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="package-card">
-                            <div class="package-thumb">
-                                <img src="{% static 'tour_packages/assets/images/destination/d-6.png' %}" alt="" class="img-fluid">
-                            </div>
-                            <div class="package-details">
-                                <div class="package-info">
-                                    <h5><span>$300</span>/Per Person</h5>
-                                   
-                                </div>
-                                <h3><i class="flaticon-arrival"></i>
-                                    <a href="package-details.html">Mount Dtna, Spain</a>
-                                </h3>
-                                <div class="package-rating">
-                                    <i class='bx bxs-star'></i>
-                                    <strong><span>1.3K+</span> Rating</strong>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="package-card">
-                            <div class="package-thumb">
-                                <img src="{% static 'tour_packages/assets/images/destination/d-7.png' %}" alt="" class="img-fluid">
-                            </div>
-                            <div class="package-details">
-                                <div class="package-info">
-                                    <h5><span>$120</span>/Per Person</h5>
-                                   
-                                </div>
-                                <h3><i class="flaticon-arrival"></i>
-                                    <a href="package-details.html">Amalfi Costa, Italy</a>
-                                </h3>
-                                <div class="package-rating">
-                                    <i class='bx bxs-star'></i>
-                                    <strong><span>1.3K+</span> Rating</strong>
-                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-9 col-md-9">
-                    <div class="row owl-carousel destinations-2">
-                        <div class="package-card">
-                            <div class="package-thumb">
-                                <img src="{% static 'tour_packages/assets/images/destination/d-7.png' %}" alt="" class="img-fluid">
-                            </div>
-                            <div class="package-details">
-                                <div class="package-info">
-                                    <h5><span>$145</span>/Per Person</h5>
-                                </div>
-                                <h3><i class="flaticon-arrival"></i>
-                                    <a href="package-details.html">Amalfi Costa, Italy</a>
-                                </h3>
-                                <div class="package-rating">
-                                    <i class='bx bxs-star'></i>
-                                    <strong><span>1.3K+</span> Rating</strong>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="package-card">
-                            <div class="package-thumb">
-                                <img src="{% static 'tour_packages/assets/images/destination/d-8.png' %}" alt="" class="img-fluid">
-                            </div>
-                            <div class="package-details">
-                                <div class="package-info">
-                                    <h5><span>$240</span>/Per Person</h5>
-                                    
-                                </div>
-                                <h3><i class="flaticon-arrival"></i>
-                                    <a href="package-details.html">Fench Rivira, Italy</a>
-                                </h3>
-                                <div class="package-rating">
-                                    <i class='bx bxs-star'></i>
-                                    <strong><span>1.3K+</span> Rating</strong>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="package-card">
-                            <div class="package-thumb">
-                                <img src="{% static 'tour_packages/assets/images/destination/d-9.png' %}" alt="" class="img-fluid">
-                            </div>
-                            <div class="package-details">
-                                <div class="package-info">
-                                    <h5><span>$300</span>/Per Person</h5>
-                                    
-                                </div>
-                                <h3><i class="flaticon-arrival"></i>
-                                    <a href="package-details.html">Amalfi Costa, Italy</a>
-                                </h3>
-                                <div class="package-rating">
-                                    <i class='bx bxs-star'></i>
-                                    <strong><span>1.3K+</span> Rating</strong>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="package-card">
-                            <div class="package-thumb">
-                                <img src="{% static 'tour_packages/assets/images/destination/d-10.png' %}" alt="" class="img-fluid">
-                            </div>
-                            <div class="package-details">
-                                <div class="package-info">
-                                    <h5><span>$120</span>/Per Person</h5>
-                                    
-                                </div>
-                                <h3><i class="flaticon-arrival"></i>
-                                    <a href="package-details.html">Mount Dtna, Italyr</a>
-                                </h3>
-                                <div class="package-rating">
-                                    <i class='bx bxs-star'></i>
-                                    <strong><span>1.3K+</span> Rating</strong>
-                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="package-slider-wrap">
-                        <img src="{% static 'tour_packages/assets/images/destination/d-2.png' %}" alt="" class="img-fluid">
-                        <div class="pakage-overlay">
-                            <strong>Italy</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="package-slider-wrap">
-                        <img src="{% static 'tour_packages/assets/images/destination/d-3.png' %}" alt="" class="img-fluid">
-                        <div class="pakage-overlay">
-                            <strong>Dubai</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9 col-md-9">
-                    <div class="row owl-carousel destinations-1">
-                        <div class="package-card">
-                            <div class="package-thumb">
-                                <img src="{% static 'tour_packages/assets/images/destination/d-11.png' %}" alt="" class="img-fluid">
-                            </div>
-                            <div class="package-details">
-                                <div class="package-info">
-                                    <h5><span>$145</span>/Per Person</h5>
-                                </div>
-                                <h3><i class="flaticon-arrival"></i>
-                                    <a href="package-details.html">Amalfi Costa, Italy</a>
-                                </h3>
-                                <div class="package-rating">
-                                    <i class='bx bxs-star'></i>
-                                    <strong><span>1.3K+</span> Rating</strong>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="package-card">
-                            <div class="package-thumb">
-                                <img src="{% static 'tour_packages/assets/images/destination/d-5.png' %}" alt="" class="img-fluid">
-                            </div>
-                            <div class="package-details">
-                                <div class="package-info">
-                                    <h5><span>$240</span>/Per Person</h5>
-                                   
-                                </div>
-                                <h3><i class="flaticon-arrival"></i>
-                                    <a href="package-details.html">Maritime Heritage</a>
-                                </h3>
-                                <div class="package-rating">
-                                    <i class='bx bxs-star'></i>
-                                    <strong><span>1.3K+</span> Rating</strong>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="package-card">
-                            <div class="package-thumb">
-                                <img src="{% static 'tour_packages/assets/images/destination/d-9.png' %}" alt="" class="img-fluid">
-                            </div>
-                            <div class="package-details">
-                                <div class="package-info">
-                                    <h5><span>$300</span>/Per Person</h5>
-                                   
-                                </div>
-                                <h3><i class="flaticon-arrival"></i>
-                                    <a href="package-details.html">Souks of Deira</a>
-                                </h3>
-                                <div class="package-rating">
-                                    <i class='bx bxs-star'></i>
-                                    <strong><span>1.3K+</span> Rating</strong>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="package-card">
-                            <div class="package-thumb">
-                                <img src="{% static 'tour_packages/assets/images/destination/d-4.png' %}" alt="" class="img-fluid">
-                            </div>
-                            <div class="package-details">
-                                <div class="package-info">
-                                    <h5><span>$120</span>/Per Person</h5>
-                                   
-                                </div>
-                                <h3><i class="flaticon-arrival"></i>
-                                    <a href="package-details.html">Jumeirah Mosque</a>
-                                </h3>
-                                <div class="package-rating">
-                                    <i class='bx bxs-star'></i>
-                                    <strong><span>1.3K+</span> Rating</strong>
-                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-         </div>
-     </div>
-     <!-- =============== Destinations area end =============== -->
-     
-     <!-- =============== achievement area start =============== -->
-     <div class="achievement-area p-80 mt-120">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="section-head pb-30">
-                        <h5>Why TourX</h5>
-                        <h2>Why you are travel with tourx</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 wow fadeInLeft animated"  data-wow-duration="1500ms" data-wow-delay="0ms" >
-                    <div class="achievement-card mt-30">
-                        <div class="achievement-icon">
-                            <i class="flaticon-guide"></i>
-                        </div>
-                        <h5>2000+ Our worldwide
-                            guide</h5>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 wow fadeInLeft animated"  data-wow-duration="1500ms" data-wow-delay="200ms" >
-                    <div class="achievement-card mt-30">
-                        <div class="achievement-icon">
-                            <i class="flaticon-trust"></i>
-                        </div>
-                        <h5>100% trusted travel agency</h5>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 wow fadeInLeft animated"  data-wow-duration="1500ms" data-wow-delay="400ms" >
-                    <div class="achievement-card mt-30">
-                        <div class="achievement-icon">
-                            <i class="flaticon-experience"></i>
-                        </div>
-                        <h5>10+ year of travel experience</h5>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 wow fadeInLeft animated"  data-wow-duration="1500ms" data-wow-delay="600ms" >
-                    <div class="achievement-card mt-30">
-                        <div class="achievement-icon">
-                            <i class="flaticon-traveller"></i>
-                        </div>
-                        <h5>90% of our traveller happy</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-     </div>
-     <!-- =============== achievement area end =============== -->
-
-    <!-- =============== Review area start =============== -->
-    <div class="review-area mt-120">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="section-head pb-40">
-                        <h5>Our Traveller Say</h5>
-                        <h2>What Oue Traveller Say About Us</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="review-slider owl-carousel">
-                <div class="review-card ">
-                    <div class="reviewer-img">
-                        <img src="{% static 'tour_packages/assets/images/reviewer/reviewer-1.png' %}" alt="" class="img-fluid">
-                    </div>
-                    <div class="reviewer-info">
-                        <h3>Dina Jems</h3>
-                        <h5>Traveller</h5>
-                        <p>Fusce aliquam luctus est, eget tincidunt velit scelerisque rhoncus. Aliquam lacinia ipsum ornare, porttitor risus nec, 
-                            mattis mauris. </p>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="reviewer-img">
-                        <img src="{% static 'tour_packages/assets/images/reviewer/reviewer-2.png' %}" alt="" class="img-fluid">
-                    </div>
-                    <div class="reviewer-info">
-                        <h3>Jahid Hassan</h3>
-                        <h5>Traveller</h5>
-                        <p>Fusce aliquam luctus est, eget tincidunt velit scelerisque rhoncus. Aliquam lacinia ipsum ornare, porttitor risus nec, 
-                            mattis mauris. </p>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="reviewer-img">
-                        <img src="{% static 'tour_packages/assets/images/reviewer/reviewer-3.png' %}" alt="" class="img-fluid">
-                    </div>
-                    <div class="reviewer-info">
-                        <h3>Shwan Pull</h3>
-                        <h5>Traveller</h5>
-                        <p>Fusce aliquam luctus est, eget tincidunt velit scelerisque rhoncus. Aliquam lacinia ipsum ornare, porttitor risus nec, 
-                            mattis mauris. </p>
-                    </div>
-                </div>
-                <div class="review-card ">
-                    <div class="reviewer-img">
-                        <img src="{% static 'tour_packages/assets/images/reviewer/reviewer-1.png' %}" alt="" class="img-fluid">
-                    </div>
-                    <div class="reviewer-info">
-                        <h3>Dina Jems</h3>
-                        <h5>Traveller</h5>
-                        <p>Fusce aliquam luctus est, eget tincidunt velit scelerisque rhoncus. Aliquam lacinia ipsum ornare, porttitor risus nec, 
-                            mattis mauris. </p>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="reviewer-img">
-                        <img src="{% static 'tour_packages/assets/images/reviewer/reviewer-2.png' %}" alt="" class="img-fluid">
-                    </div>
-                    <div class="reviewer-info">
-                        <h3>Jahid Hassan</h3>
-                        <h5>Traveller</h5>
-                        <p>Fusce aliquam luctus est, eget tincidunt velit scelerisque rhoncus. Aliquam lacinia ipsum ornare, porttitor risus nec, 
-                            mattis mauris. </p>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="reviewer-img">
-                        <img src="{% static 'tour_packages/assets/images/reviewer/reviewer-3.png' %}" alt="" class="img-fluid">
-                    </div>
-                    <div class="reviewer-info">
-                        <h3>Shwan Pull</h3>
-                        <h5>Traveller</h5>
-                        <p>Fusce aliquam luctus est, eget tincidunt velit scelerisque rhoncus. Aliquam lacinia ipsum ornare, porttitor risus nec, 
-                            mattis mauris. </p>
-                    </div>
-                </div>
-                <div class="review-card ">
-                    <div class="reviewer-img">
-                        <img src="{% static 'tour_packages/assets/images/reviewer/reviewer-1.png' %}" alt="" class="img-fluid">
-                    </div>
-                    <div class="reviewer-info">
-                        <h3>Dina Jems</h3>
-                        <h5>Traveller</h5>
-                        <p>Fusce aliquam luctus est, eget tincidunt velit scelerisque rhoncus. Aliquam lacinia ipsum ornare, porttitor risus nec, 
-                            mattis mauris. </p>
-                    </div>
-                </div>
-            </div> 
-        </div>
-    </div>
-    <!-- =============== Review area end =============== -->
-
-    <!-- ===============  Feature area start =============== -->
-    <div class="feature-area mt-120 p-80">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="section-head pb-60">
-                        <h5>Feature Tours</h5>
-                        <h2>See Our Best Popular Package</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                   <div class="feature-slider owl-carousel">
-                       <div class="feature-card">
-                           <div class="feature-img">
-                               <img src="{% static 'tour_packages/assets/images/feature/f-1.png' %}" alt="" class="img-fluid">
-                           </div>
-                           <div class="feature-content">
-                                <a href="package-details.html" class="title">Group Travel Go To Bea 
-                                    Amsterdam</a>
-                                <h5><i class='bx bxs-star'></i><span> 7K+</span>Rating</h5>
-                                <strong>$150 <span>$200</span></strong>
-                           </div>
-                       </div>
-                       <div class="feature-card">
-                           <div class="feature-img">
-                               <img src="{% static 'tour_packages/assets/images/feature/f-2.png' %}" alt="" class="img-fluid">
-                           </div>
-                           <div class="feature-content">
-                            <a href="package-details.html" class="title">Group Travel Go To Bea 
-                                Amsterdam</a>
-                                <h5><i class='bx bxs-star'></i><span> 7K+</span>Rating</h5>
-                                <strong>$150 <span>$200</span></strong>
-                           </div>
-                       </div>
-                       <div class="feature-card">
-                           <div class="feature-img">
-                               <img src="{% static 'tour_packages/assets/images/feature/f-1.png' %}" alt="" class="img-fluid">
-                           </div>
-                           <div class="feature-content">
-                            <a href="package-details.html" class="title">Group Travel Go To Bea 
-                                Amsterdam</a>
-                                <h5><i class='bx bxs-star'></i><span> 7K+</span>Rating</h5>
-                                <strong>$150 <span>$200</span></strong>
-                           </div>
-                       </div>
-                       <div class="feature-card">
-                           <div class="feature-img">
-                               <img src="{% static 'tour_packages/assets/images/feature/f-2.png' %}" alt="" class="img-fluid">
-                           </div>
-                           <div class="feature-content">
-                                <a href="package-details.html" class="title">Group Travel Go To Bea 
-                                Amsterdam</a>
-                                <h5><i class='bx bxs-star'></i><span> 7K+</span>Rating</h5>
-                                <strong>$150 <span>$200</span></strong>
-                           </div>
-                       </div>
-                       <div class="feature-card">
-                           <div class="feature-img">
-                               <img src="{% static 'tour_packages/assets/images/feature/f-1.png' %}" alt="" class="img-fluid">
-                           </div>
-                           <div class="feature-content">
-                            <a href="package-details.html" class="title">Group Travel Go To Bea 
-                                Amsterdam</a>
-                                <h5><i class='bx bxs-star'></i><span> 7K+</span>Rating</h5>
-                                <strong>$150 <span>$200</span></strong>
-                           </div>
-                       </div>
-                   </div> 
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ===============  Feature area start =============== -->
-
-    <!-- ===============  Blog area start =============== -->
-    <div class="blog-area pt-120">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="section-head pb-30">
-                        <h5>Latest Blog</h5>
-                        <h2>Stay Updated And new post our Blog</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInLeft animated"  data-wow-duration="1500ms" data-wow-delay="0ms" >
-                    <div class="blog-card">
-                        <div class="blog-img">
-                            <img src="{% static 'tour_packages/assets/images/blog/b-1.png' %}" alt="" class="img-fluid">
-                            <div class="blog-date"><i class="flaticon-calendar"></i> 1 April, 2021</div>
-                        </div>
-                        <div class="blog-details">
-                            <div class="blog-info">
-                                <a class="blog-writer" href="#"><i class="flaticon-user"></i>Dina Jems</a>
-                                <a class="blog-comment" href="#"><i class="flaticon-comment"></i><span>(3)</span>Comment</a>
-                            </div>
-                            <a href="blog-details.html" class="blog-title">Donec egestas orci viverra
-                                fermentum risus.</a>
-                            <div class="blog-btn">
-                                <a href="blog-details.html" class="btn-common-sm">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6  wow fadeInLeft animated"  data-wow-duration="1500ms" data-wow-delay="300ms">
-                    <div class="blog-card">
-                        <div class="blog-img">
-                            <img src="{% static 'tour_packages/assets/images/blog/b-2.png' %}" alt="" class="img-fluid">
-                            <div class="blog-date"><i class="flaticon-calendar"></i> 1 April, 2021</div>
-                        </div>
-                        <div class="blog-details">
-                            <div class="blog-info">
-                                <a class="blog-writer" href="#"><i class="flaticon-user"></i>Dina Jems</a>
-                                <a class="blog-comment" href="#"><i class="flaticon-comment"></i><span>(3)</span>Comment</a>
-                            </div>
-                            <a href="blog-details.html" class="blog-title">Praesent ut mattis ante the Nullam lobortis. </a>
-                            <div class="blog-btn">
-                                <a href="blog-details.html" class="btn-common-sm">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInLeft animated"  data-wow-duration="1500ms" data-wow-delay="600ms">
-                    <div class="blog-card">
-                        <div class="blog-img">
-                            <img src="{% static 'tour_packages/assets/images/blog/b-3.png' %}" alt="" class="img-fluid">
-                            <div class="blog-date"><i class="flaticon-calendar"></i> 1 April, 2021</div>
-                        </div>
-                        <div class="blog-details">
-                            <div class="blog-info">
-                                <a class="blog-writer" href="#"><i class="flaticon-user"></i>Dina Jems</a>
-                                <a class="blog-comment" href="#"><i class="flaticon-comment"></i><span>(3)</span>Comment</a>
-                            </div>
-                            <a href="blog-details.html" class="blog-title">Maecenas vehicula risus non neque tincidunt.</a>
-                            <div class="blog-btn">
-                                <a href="blog-details.html" class="btn-common-sm">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ===============  Blog area end =============== -->
-
+{#    <!-- ===============  Blog area start =============== -->#}
+{#    <div class="blog-area pt-120">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-lg-12 col-md-12 col-sm-12">#}
+{#                    <div class="section-head pb-30">#}
+{#                        <h5>Latest Blog</h5>#}
+{#                        <h2>Stay Updated And new post our Blog</h2>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="row">#}
+{#                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInLeft animated"  data-wow-duration="1500ms" data-wow-delay="0ms" >#}
+{#                    <div class="blog-card">#}
+{#                        <div class="blog-img">#}
+{#                            <img src="{% static 'tour_packages/assets/images/blog/b-1.png' %}" alt="" class="img-fluid">#}
+{#                            <div class="blog-date"><i class="flaticon-calendar"></i> 1 April, 2021</div>#}
+{#                        </div>#}
+{#                        <div class="blog-details">#}
+{#                            <div class="blog-info">#}
+{#                                <a class="blog-writer" href="#"><i class="flaticon-user"></i>Dina Jems</a>#}
+{#                                <a class="blog-comment" href="#"><i class="flaticon-comment"></i><span>(3)</span>Comment</a>#}
+{#                            </div>#}
+{#                            <a href="blog-details.html" class="blog-title">Donec egestas orci viverra#}
+{#                                fermentum risus.</a>#}
+{#                            <div class="blog-btn">#}
+{#                                <a href="blog-details.html" class="btn-common-sm">Read More</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-lg-4 col-md-6 col-sm-6  wow fadeInLeft animated"  data-wow-duration="1500ms" data-wow-delay="300ms">#}
+{#                    <div class="blog-card">#}
+{#                        <div class="blog-img">#}
+{#                            <img src="{% static 'tour_packages/assets/images/blog/b-2.png' %}" alt="" class="img-fluid">#}
+{#                            <div class="blog-date"><i class="flaticon-calendar"></i> 1 April, 2021</div>#}
+{#                        </div>#}
+{#                        <div class="blog-details">#}
+{#                            <div class="blog-info">#}
+{#                                <a class="blog-writer" href="#"><i class="flaticon-user"></i>Dina Jems</a>#}
+{#                                <a class="blog-comment" href="#"><i class="flaticon-comment"></i><span>(3)</span>Comment</a>#}
+{#                            </div>#}
+{#                            <a href="blog-details.html" class="blog-title">Praesent ut mattis ante the Nullam lobortis. </a>#}
+{#                            <div class="blog-btn">#}
+{#                                <a href="blog-details.html" class="btn-common-sm">Read More</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="col-lg-4 col-md-6 col-sm-6 wow fadeInLeft animated"  data-wow-duration="1500ms" data-wow-delay="600ms">#}
+{#                    <div class="blog-card">#}
+{#                        <div class="blog-img">#}
+{#                            <img src="{% static 'tour_packages/assets/images/blog/b-3.png' %}" alt="" class="img-fluid">#}
+{#                            <div class="blog-date"><i class="flaticon-calendar"></i> 1 April, 2021</div>#}
+{#                        </div>#}
+{#                        <div class="blog-details">#}
+{#                            <div class="blog-info">#}
+{#                                <a class="blog-writer" href="#"><i class="flaticon-user"></i>Dina Jems</a>#}
+{#                                <a class="blog-comment" href="#"><i class="flaticon-comment"></i><span>(3)</span>Comment</a>#}
+{#                            </div>#}
+{#                            <a href="blog-details.html" class="blog-title">Maecenas vehicula risus non neque tincidunt.</a>#}
+{#                            <div class="blog-btn">#}
+{#                                <a href="blog-details.html" class="btn-common-sm">Read More</a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <!-- ===============  Blog area end =============== -->#}
+{##}
 
     <!-- ===============  Newsletter area start =============== -->
     <div class="newsletter-area pt-120">
@@ -1158,14 +539,12 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="newsletter-wrapper">
-                        <h2>Subscribe To Our Newsletter 
-                            For Latest Update</h2>
-                        
+                        <h2>{% trans "Subscribe To Our Newsletter For Latest Update" %}</h2>
                         <form>
                             <div class="input-group newsletter-input">
                                 <input type="text" class="form-control" placeholder="Enter Your Email"
                                     aria-label="Recipient's username" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Subscribe</button>
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">{% trans "Subscribe" %}</button>
                             </div>
                         </form>
                     </div>
@@ -1184,10 +563,9 @@
                         <div class="footer-logo">
                             <img src="{% static 'tour_packages/assets/images/logo-2.png' %}" alt="" class="img-fluid">
                         </div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid maxime aut ut voluptate
-                            dolorum nisi ducimus ratione</p>
+                        <p>{% blocktrans %}Bilol Honest Travel is dedicated to providing exceptional travel experiences around the world. From cultural tours to exotic getaways, we ensure your journey is unforgettable and seamless. Trust us to guide you on your next adventure.{% endblocktrans %}</p>
                         <div class="footer-social-icons">
-                            <h5>Follow Us:</h5>
+                            <h5>{% trans "Follow Us" %}:</h5>
                             <ul>
                                 <li><a href="#"><i class='bx bxl-facebook'></i></a></li>
                                 <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
@@ -1201,13 +579,12 @@
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-sm-7">
                             <div class="footer-links">
-                                <h5 class="widget-title">Contact us</h5>
-                              
+                                <h5 class="widget-title">{% trans "Contact us" %}</h5>
+    
                                 <div class="contact-box">
                                     <span><i class="bx bx-phone"></i></span>
                                     <div>
-                                        <a href="tel:+01852-1265122">+01852-1265122</a>
-                                        <a href="tel:+01852-1265122">+01852-1265122</a>
+                                        <a href="tel:+998770724144">+998770724144</a>
                                     </div>
                                 </div>
                                 <div class="contact-box">
@@ -1220,35 +597,33 @@
                                 <div class="contact-box">
                                     <span><i class="bx bx-location-plus"></i></span>
                                     <div>
-                                        <a href="#">2752 Willison Street <br>
-                                            Eagan, United State</a>
+                                        <a href="#">{% blocktrans %}
+                                            Toshkent Shahri, Sergeli tumani, <br> 
+                                            Qumariq MFY, Qum-Ariq, <br>
+                                            9Proyezd ko'chasi, 20-UY{% endblocktrans %}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-5">
                             <div class="footer-links">
-                                <h5 class="widget-title">support</h5>
+                                <h5 class="widget-title">{% trans "support" %}</h5>
                                 <div class="category-list">
                                    <ul>
-                                       <li><a href="contact.html">Contact us</a></li>
-                                       <li><a href="about.html">About us</a></li>
-                                       <li><a href="#">Services</a></li>
-                                       <li><a href="blog.html">our Blogs</a></li>
-                                       <li><a href="#">terms and conditions</a></li>
+                                       <li><a href="#">{% trans "Contact us" %}</a></li>
+                                       <li><a href="#">{% trans "About us" %}</a></li>
+                                       <li><a href="#">{% trans "Services" %}</a></li>
+                                       <li><a href="#">{% trans "Our Blogs" %}</a></li>
+                                       <li><a href="#">{% trans "terms and conditions" %}</a></li>
                                    </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="footer-links payment-links">
-                                <h5 class="widget-title">We Accepts:</h5>
+                                <h5 class="widget-title">{% trans "We Accepts" %}:</h5>
                                 <div class="payment-cards">
-                                    <img src="{% static 'tour_packages/assets/images/payment/payment-card-2.png' %}" alt="" class="img-fluid">
-                                    <img src="{% static 'tour_packages/assets/images/payment/payment-card-1.png' %}" alt="" class="img-fluid">
-                                    <img src="{% static 'tour_packages/assets/images/payment/payment-card-3.png' %}" alt="" class="img-fluid">
-                                    <img src="{% static 'tour_packages/assets/images/payment/payment-card-4.png' %}" alt="" class="img-fluid">
-                                    <img src="{% static 'tour_packages/assets/images/payment/payment-card-5.png' %}" alt="" class="img-fluid">
+                                    <img src="{% static 'tour_packages/assets/images/payment/payme.png' %}" style="background-color: whitesmoke; border-radius:   3px" alt="" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -1258,16 +633,14 @@
             <div class="row">
                <div class="col-lg-12">
                 <div class="copyrigth-area">
-                    <p>Copyright 2021 <a href="#">TourX</a> | Design By <a href="#">Egens Lab</a></p>
+                    <p>{% trans "Copyright" %} 2024 <a href="#">bilolhonestravel</a>. {% trans "All rights reserverd" %}
                 </div>
                </div>
             </div>
-            
+    
         </div>
     </div>
     <!-- ==============  Footer area end================= -->
-      
-
 
     <!--Javascript -->
     <script src="{% static 'tour_packages/assets/js/jquery-3.6.0.min.js' %}"></script>
@@ -1280,7 +653,26 @@
      <script src="{% static 'tour_packages/assets/js/typed.js' %}"></script>
     <!-- Custom JavaScript -->
     <script src="{% static 'tour_packages/assets/js/main.js' %}"></script>
+<script>
+    document.querySelectorAll('.language-option').forEach(function (el) {
+        el.addEventListener('click', function () {
+            var selectedLanguage = this.getAttribute('data-lang');
+            var currentPath = window.location.pathname;
+            
+            var pathSegments = currentPath.split('/');
+            if (pathSegments[1].length === 2 && (pathSegments[1] === 'en' || pathSegments[1] === 'ru' || pathSegments[1] === 'uz')) {
+                
+                pathSegments[1] = selectedLanguage;
+            } else {
+                
+                pathSegments.splice(1, 0, selectedLanguage);
+            }
+            var newUrl = pathSegments.join('/');
+            window.location.href = newUrl;
+        });
+    });
+</script>
 
-    
+
 </body>
 </html>
