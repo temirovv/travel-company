@@ -1,6 +1,7 @@
 import sys  # noqa
 import os
 from pathlib import Path
+from pprint import pprint
 
 from dotenv import load_dotenv
 
@@ -267,3 +268,4 @@ PAYME: dict = {
 }
 
 ORDER_MODEL = 'apps.bookings.models.Booking'
+pprint(PAYME)
