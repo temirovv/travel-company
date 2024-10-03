@@ -1,4 +1,5 @@
 # tours/py
+from django.contrib.auth import get_user_model
 from django.db.models import CharField, TextField, DecimalField, PositiveIntegerField, DateField, ManyToManyField, \
     DateTimeField, ImageField, Model, ForeignKey, CASCADE, TimeField, BooleanField, SlugField
 from django.utils.text import slugify
@@ -91,7 +92,7 @@ class Gallery(Model):
         ordering = ['-id']
 
     def __str__(self):
-        return f"Gallery Image {self.id}"
+        return f"Gallery Image {self.id} | {self.title}"
 
 
 class TourPackageDestination(Model):
@@ -140,5 +141,5 @@ class Activity(Model):
         verbose_name_plural = 'Activities'
 
     def __str__(self):
-        return self.activity_title
+        return self.title
 
