@@ -50,7 +50,7 @@ class PaymePaymentView(View):
         serializer.is_valid(
             raise_exception=True
         )
-        pay_link = GeneratePayLink(**serializer.validated_data)
+        pay_link = GeneratePayLink(**serializer.validated_data).generate_link()
 
         return redirect(pay_link)
 
