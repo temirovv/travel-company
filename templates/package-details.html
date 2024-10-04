@@ -615,7 +615,7 @@ x{% load static %}
                                                     <h3><i class="flaticon-arrival"></i>
                                                         <a href="{% url 'package_detail' related_package.slug %}">{{ related_package.title }}</a>
                                                     </h3>
-                                                    <h5><span>{{ related_package.price }} {% trans "Som" %}</span>/ {% trans "Per Person" %}</h5>
+                                                    <h5><span>{{ related_package.price|floatformat:0|intcomma }} {% trans "Som" %}</span>/ {% trans "Per Person" %}</h5>
                                                 </div>
                                             </li>
                                         {% endfor %}
