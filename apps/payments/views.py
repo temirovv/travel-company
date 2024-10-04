@@ -40,7 +40,7 @@ class GeneratePayLinkAPIView(APIView):
 class PaymePaymentView(View):
     def get(self, request, booking_id):  # noqa
         booking = get_object_or_404(Booking, id=booking_id)
-        amount = int(booking.amount)  # Amount in tiyin (smallest currency unit)
+        amount = int(booking.amount*100)  # Amount in tiyin (smallest currency unit)
         serializer = GeneratePayLinkSerializer(
             data={
                 "order_id": booking.id,
@@ -51,9 +51,6 @@ class PaymePaymentView(View):
             raise_exception=True
         )
         pay_link = GeneratePayLink(**serializer.validated_data)
-        pay_link.amount = pay_link.to_tiyin(pay_link.amount)
 
-        pay_link = pay_link.generate_link()
-        
         return redirect(pay_link)
 
