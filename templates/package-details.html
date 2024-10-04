@@ -441,7 +441,7 @@ x{% load static %}
                                         {% if first_plan %}
                                             <div class="p-timeline-overview">
                                                 <h5>{% trans "Overview" %}</h5>
-                                                <p>{{ first_plan.plan_description }}</p>
+                                                <p>{{ first_plan.plan_description|linebreaksbr|safe }}</p>
                                             </div>
 
                                             <ul class="p-timeline">
@@ -455,9 +455,9 @@ x{% load static %}
                                                         <div class="timeline-content">
                                                             <h5>{{ activity.title }}</h5> <!-- Faoliyat nomi -->
                                                             <strong>{{ activity.start_time }} to {{ activity.end_time }}</strong>
-                                                            <p>{{ activity.additional_info|safe }}</p>
+                                                            <p>{{ activity.additional_info|linebreaksbr|safe }}</p>
                                                             <ul>
-                                                                <li><i class="bx bx-check"></i>{{ activity.description }}</li>
+                                                                <li><i class="bx bx-check"></i>{{ activity.description|linebreaksbr|safe }}</li>
                                                             </ul>
                                                         </div>
                                                     </li>
