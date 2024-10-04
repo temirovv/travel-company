@@ -426,7 +426,7 @@ x{% load static %}
                                         <div class="tab-content-1">
                                             <div class="p-overview">
                                                 <h5>{% trans "Overview" %}</h5>
-                                                <p>{{ package.description|safe }}</p>
+                                                <p>{{ package.description|linebreaksbr|safe }}</p>
                                             </div>
                                         </div>
                                     </div>
