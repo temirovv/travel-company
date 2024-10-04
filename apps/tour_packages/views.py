@@ -60,7 +60,7 @@ class TourPackageDetailView(LoginRequiredMixin, DetailView):
 
             booking.user = request.user
             booking.tour_package = self.object
-            booking.amount = booking.calculate_total_price()
+            booking.amount = booking.calculate_total_price() * 100
 
             booking.save()
 
