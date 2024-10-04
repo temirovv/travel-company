@@ -32,10 +32,7 @@ class GeneratePayLinkAPIView(APIView):
         serializer.is_valid(
             raise_exception=True
         )
-        pay_link = GeneratePayLink(**serializer.validated_data)
-        pay_link.amount = pay_link.to_tiyin(pay_link.amount)
-
-        pay_link = pay_link.generate_link()
+        pay_link = GeneratePayLink(**serializer.validated_data).generate_link()
 
         return Response({"pay_link": pay_link})
 
@@ -53,7 +50,10 @@ class PaymePaymentView(View):
         serializer.is_valid(
             raise_exception=True
         )
-        pay_link = GeneratePayLink(**serializer.validated_data).generate_link()
-        print(pay_link)
+        pay_link = GeneratePayLink(**serializer.validated_data)
+        pay_link.amount = pay_link.to_tiyin(pay_link.amount)
+
+        pay_link = pay_link.generate_link()
+        
         return redirect(pay_link)
 
