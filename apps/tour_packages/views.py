@@ -61,11 +61,11 @@ class TourPackageDetailView(LoginRequiredMixin, DetailView):
             booking.user = request.user
             booking.tour_package = self.object
             booking.amount = booking.calculate_total_price() * 100
-
+            
             booking.save()
 
             messages.success(request, 'Bron muvaffaqiyatli amalga oshirildi!')
-            print("pzids")
+
             return redirect(reverse('payment', kwargs={'booking_id': booking.id}))
 
         context = self.get_context_data(form=form)
