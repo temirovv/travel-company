@@ -69,6 +69,73 @@ x{% load static %}
         .language-dropdown:hover .dropdown-btn {
             background-color: #3e8e41;
         }
+        /* Messages Container */
+.messages {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 300px;
+    padding: 0;
+}
+
+/* Message List */
+.message-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Default Message Styles */
+.message {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Success Message */
+.message.success {
+    background-color: #28a745;
+}
+
+/* Error Message */
+.message.error {
+    background-color: #dc3545;
+}
+
+/* Info Message */
+.message.info {
+    background-color: #17a2b8;
+}
+
+/* Warning Message */
+.message.warning {
+    background-color: #ffc107;
+    color: #000;
+}
+
+/* Fade out animation for messages */
+.message {
+    animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -330,6 +397,20 @@ x{% load static %}
     </div>
 </div>
 <!-- ===============  breadcrumb area end =============== -->
+
+<!-- Messages Section -->
+<div class="messages">
+    {% if messages %}
+        <ul class="message-list">
+            {% for message in messages %}
+                <li class="message {{ message.tags }}">
+                    {{ message }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
 
 <div class="package-details-wrapper pt-120">
     <div class="container">
