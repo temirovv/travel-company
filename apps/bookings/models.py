@@ -23,7 +23,7 @@ class BookingStatusChoices(TextChoices):
 
 
 class Booking(Model):
-    user = ForeignKey(User, on_delete=CASCADE, related_name='bookings')
+    user = ForeignKey(User, on_delete=CASCADE, related_name='bookings', null=True, blank=True)
     tour_package = ForeignKey(TourPackage, on_delete=CASCADE, related_name='bookings')
     ticket_type = CharField(
         max_length=10, choices=BookingTicketTypeChoices.choices,

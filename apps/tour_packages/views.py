@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView, TemplateView
+from django.contrib.auth.models import AnonymousUser
 
 from .models import TourPackage, Destination
 from ..bookings.forms import BookingForm
@@ -21,7 +22,7 @@ class HomeView(TemplateView):
         return context
 
 
-class TourPackageDetailView(LoginRequiredMixin, DetailView):
+class TourPackageDetailView(DetailView):
     model = TourPackage
     template_name = 'package-details.html'
     context_object_name = 'package'
@@ -58,7 +59,11 @@ class TourPackageDetailView(LoginRequiredMixin, DetailView):
         if form.is_valid():
             booking = form.save(commit=False)
 
-            booking.user = request.user
+            if isinstance(request.user, AnonymousUser):
+                booking.user = None
+            else:
+                booking.user = request.user
+
             booking.tour_package = self.object
             booking.amount = booking.calculate_total_price() * 100
             
