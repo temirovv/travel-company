@@ -6,13 +6,13 @@ from .models import Booking
 class BookingForm(ModelForm):
     class Meta:
         model = Booking
-        fields = ['phone_number', 'email', 'number_of_adults', 'booking_date', 'message']
+        fields = ['phone_number', 'booking_date', 'message']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['phone_number'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Phone'})
-        self.fields['email'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Email'})
-        self.fields['number_of_adults'].widget.attrs.update({'class': 'form-select', 'aria-label': 'Adult'})
+        # self.fields['email'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Email'})
+        # self.fields['number_of_adults'].widget.attrs.update({'class': 'form-select', 'aria-label': 'Adult'})
         self.fields['booking_date'].widget.attrs.update({'class': 'input-field check-in', 'placeholder': 'dd-mm-yy'})
         self.fields['message'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Message', 'rows': 3})
 

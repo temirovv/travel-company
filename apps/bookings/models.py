@@ -32,7 +32,7 @@ class Booking(Model):
     number_of_children = PositiveIntegerField(default=0)
     amount = DecimalField(max_digits=12, decimal_places=2)
     phone_number = CharField(max_length=15, help_text="User's phone number")
-    email = EmailField()
+    email = EmailField(null=True, blank=True)
     booking_date = DateField()
     status = CharField(
         max_length=10, choices=BookingStatusChoices.choices,
