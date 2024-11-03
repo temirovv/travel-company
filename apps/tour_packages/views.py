@@ -71,8 +71,8 @@ class TourPackageDetailView(DetailView):
 
             messages.success(request, 'Joyingiz muvaffaqiyatli band qilindi!\nTez orada sizga aloqaga chiqamiz')
 
-            # return redirect(reverse('payment', kwargs={'booking_id': booking.id}))
-            return redirect(reverse('package_detail', kwargs={'slug': self.object.slug}))
+            return redirect(reverse('payment', kwargs={'booking_id': booking.id}))
+            # return redirect(reverse('package_detail', kwargs={'slug': self.object.slug}))
 
         context = self.get_context_data(form=form)
         messages.error(request, 'Ma\'lumotlarni xato kiritindingiz qaytadan urinib ko\'ring')

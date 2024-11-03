@@ -8,7 +8,7 @@ from payme.views import MerchantAPIView  # noqa
 from payme.methods.generate_link import GeneratePayLink  # noqa
 
 from .models import Payment
-from apps.bookings.models import Booking
+from apps.bookings.models import Booking, BookingStatusChoices
 from .serializers import GeneratePayLinkSerializer
 
 
@@ -18,6 +18,15 @@ class PaymeCallBackAPIView(MerchantAPIView):
 
     def perform_transaction(self, order_id, action, *args, **kwargs) -> None:
         print(f"perform_transaction for order_id: {order_id}, response: {action}")
+        book_object = Booking.objects.get(id=order_id)
+        try:
+            result = action.get('result')
+            state = result.get('state')
+            if int(state) == 2:
+                book_object.status = BookingStatusChoices.CONFIRMED
+                book_object.save()
+        except AttributeError:
+            print(f'action{action} is', type(action))
 
     def cancel_transaction(self, order_id, action, *args, **kwargs) -> None:
         print(f"cancel_transaction for order_id: {order_id}, response: {action}")
