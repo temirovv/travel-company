@@ -44,4 +44,6 @@ class Booking(Model):
         return adult_price
 
     def __str__(self):
-        return f"Booking {self.id} by {self.user.username} {self.id}"
+        if self.user:
+            return f"Booking {self.id} by {self.user.username} {self.id}"
+        return f"Booking {self.id}"
