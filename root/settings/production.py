@@ -6,7 +6,7 @@ from root.settings.base import *
 load_dotenv(BASE_DIR / '.env/.env.production')
 
 SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 # ALLOWED_HOSTS = ['bilolhonesttravel.uz', 'www.bilolhonesttravel.uz', 'https://bilolhonesttravel.uz']
 
