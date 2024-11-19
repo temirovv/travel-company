@@ -11,7 +11,6 @@ sys.path.append(str(BASE_DIR / 'apps'))
 sys.path.append(str(BASE_DIR / 'root/settings'))
 
 SECRET_KEY = ''
-
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
@@ -28,11 +27,11 @@ INSTALLED_APPS = [
 
     # custom apps
     'users',
-    'places',
     'payments',
     'tour_packages',
     'user_reviews',
     'bookings',
+    'utils',
 
     # third party apps
     'django_ckeditor_5',
@@ -299,3 +298,9 @@ ORDER_MODEL = 'apps.bookings.models.Booking'
 #         },
 #     },
 # }
+
+
+HOST_IN_USE = 'https://bilolhonesttravel.uz'
+PAYMENT_CHECKS = 'https://checkout.paycom.uz/'
+BOT_API_TOKEN = '7062021126:AAHWTPD5mIvzgipdYOk3S3qlwPdKTcQUxv4'
+ADMIN = 0

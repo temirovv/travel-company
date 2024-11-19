@@ -13,6 +13,9 @@ from .serializers import GeneratePayLinkSerializer
 
 
 class PaymeCallBackAPIView(MerchantAPIView):
+    def get(self):
+        return redirect('home')
+
     def create_transaction(self, order_id, action, *args, **kwargs) -> None:
         print(f"create_transaction for order_id: {order_id}, response: {action}")
 

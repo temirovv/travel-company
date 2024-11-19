@@ -17,3 +17,5 @@ PAYME: dict = {
     'PAYME_MIN_AMOUNT': int(os.getenv("PAYME_MIN_AMOUNT", default=0)),
     'PAYME_ACCOUNT': os.getenv("PAYME_ACCOUNT"),
 }
+
+BOT_ADMINS = os.getenv('BOT_ADMINS', '*').split(',')
