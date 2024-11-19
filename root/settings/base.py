@@ -304,4 +304,4 @@ HOST_IN_USE = 'https://bilolhonesttravel.uz'
 PAYMENT_CHECKS = 'https://checkout.paycom.uz/'
 BOT_API_TOKEN = '7062021126:AAHWTPD5mIvzgipdYOk3S3qlwPdKTcQUxv4'
 ADMIN = 0
-SITE_URL = HOST_IN_USE
+SITE_URL = 'https://bilolhonesttravel.uz/'
