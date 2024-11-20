@@ -54,8 +54,8 @@ class TourPackageDetailView(DetailView):
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         form = BookingForm(request.POST)
-
-        print(str(form.errors).encode('utf-8'))
+        print(f"request.POST = {request.POST}")
+        print(f"Form errors: {str(form.errors).encode('utf-8')}")
         if form.is_valid():
             booking = form.save(commit=False)
 
