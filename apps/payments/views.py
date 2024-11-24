@@ -13,7 +13,10 @@ from .serializers import GeneratePayLinkSerializer
 
 
 class PaymeCallBackAPIView(MerchantAPIView):
-    def get(self):
+    def get(self, *args, **kwargs):
+        print(
+            f"PaymeCallBackAPIView: get {args=}\n{kwargs=}"
+        )
         return redirect('home')
 
     def create_transaction(self, order_id, action, *args, **kwargs) -> None:
