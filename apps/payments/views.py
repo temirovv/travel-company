@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.views.generic import View
+from django.contrib import messages
 from rest_framework.views import APIView
 from rest_framework.response import Response
-
 
 from payme.views import MerchantAPIView  # noqa
 from payme.methods.generate_link import GeneratePayLink  # noqa
@@ -28,6 +28,7 @@ class PaymeCallBackAPIView(MerchantAPIView):
             if int(state) == 2:
                 book_object.status = BookingStatusChoices.CONFIRMED
                 book_object.save()
+                messages.success(self.request, 'Joyingiz muvaffaqiyatli band qilindi!\nTez orada sizga aloqaga chiqamiz')
         except AttributeError:
             print(f'action{action} is', type(action))
 

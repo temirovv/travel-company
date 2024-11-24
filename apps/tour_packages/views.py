@@ -69,7 +69,7 @@ class TourPackageDetailView(DetailView):
             
             booking.save()
 
-            messages.success(request, 'Joyingiz muvaffaqiyatli band qilindi!\nTez orada sizga aloqaga chiqamiz')
+            # messages.success(request, 'Joyingiz muvaffaqiyatli band qilindi!\nTez orada sizga aloqaga chiqamiz')
 
             return redirect(reverse('payment', kwargs={'booking_id': booking.id}))
             # return redirect(reverse('package_detail', kwargs={'slug': self.object.slug}))
