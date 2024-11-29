@@ -1,5 +1,5 @@
 import re
-from django.forms import ModelForm, ValidationError
+from django.forms import ModelForm, ValidationError, DateInput
 from .models import Booking
 
 
@@ -13,7 +13,8 @@ class BookingForm(ModelForm):
         self.fields['phone_number'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Phone'})
         # self.fields['email'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Email'})
         # self.fields['number_of_adults'].widget.attrs.update({'class': 'form-select', 'aria-label': 'Adult'})
-        self.fields['booking_date'].widget.attrs.update({'class': 'input-field check-in', 'placeholder': 'dd-mm-yy'})
+        self.fields['booking_date'].widget.attrs.update({'class': 'input-field check-in', 'placeholder': 'dd-mm-yy',
+                                                         'type': 'date'})
         self.fields['message'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Message', 'rows': 3})
 
     # def clean_phone_number(self):

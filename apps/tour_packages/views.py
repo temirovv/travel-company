@@ -75,9 +75,6 @@ class TourPackageDetailView(DetailView):
             # return redirect(reverse('package_detail', kwargs={'slug': self.object.slug}))
 
         context = self.get_context_data(form=form)
-        try:
-            print(form.errors)
-        except Exception:
-            print(str(form.errors))
+
         messages.error(request, 'Ma\'lumotlarni xato kiritindingiz qaytadan urinib ko\'ring')
         return self.render_to_response(context)
